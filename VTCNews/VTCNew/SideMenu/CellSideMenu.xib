@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="62" id="KGk-i7-Jjw" customClass="CellSideMenu" customModule="VTVNew" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="264" height="62"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="264" height="62"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icSMNew" translatesAutoresizingMaskIntoConstraints="NO" id="0iv-1S-3BR">
+                        <rect key="frame" x="16" y="21.5" width="23" height="19"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="0iv-1S-3BR" secondAttribute="height" multiplier="31:25" id="nYu-51-6Cm"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SC4-dJ-2ia">
+                        <rect key="frame" x="47" y="21" width="42" height="20"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icSMDown" translatesAutoresizingMaskIntoConstraints="NO" id="smI-AN-dGd">
+                        <rect key="frame" x="231.5" y="26.5" width="16.5" height="9"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="smI-AN-dGd" secondAttribute="height" multiplier="7:4" id="bk5-hk-CUs"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="smI-AN-dGd" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.15" id="7wX-ja-YPf"/>
+                    <constraint firstItem="smI-AN-dGd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="F5i-mA-7pV"/>
+                    <constraint firstItem="0iv-1S-3BR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="PIr-7Y-Zyt"/>
+                    <constraint firstItem="SC4-dJ-2ia" firstAttribute="leading" secondItem="0iv-1S-3BR" secondAttribute="trailing" constant="8" id="QN8-Yj-Lk5"/>
+                    <constraint firstItem="0iv-1S-3BR" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.3" id="Vbh-Cg-Dzq"/>
+                    <constraint firstItem="0iv-1S-3BR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Wky-nj-95n"/>
+                    <constraint firstItem="SC4-dJ-2ia" firstAttribute="centerY" secondItem="0iv-1S-3BR" secondAttribute="centerY" id="d4A-ql-vba"/>
+                    <constraint firstAttribute="trailing" secondItem="smI-AN-dGd" secondAttribute="trailing" constant="16" id="trV-BV-qpN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="img" destination="0iv-1S-3BR" id="Ag3-pc-FY4"/>
+                <outlet property="imgDown" destination="smI-AN-dGd" id="BRD-y4-n72"/>
+                <outlet property="lblTitle" destination="SC4-dJ-2ia" id="cft-b2-hp6"/>
+            </connections>
+            <point key="canvasLocation" x="-76.811594202898561" y="83.705357142857139"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icSMDown" width="28" height="16"/>
+        <image name="icSMNew" width="31" height="25"/>
+    </resources>
+</document>

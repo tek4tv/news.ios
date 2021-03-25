@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CellVideoHome" customModule="VTVNew" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="236" height="407"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="236" height="407"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VfD-UF-BNj">
+                        <rect key="frame" x="0.0" y="0.0" width="236" height="407"/>
+                        <color key="backgroundColor" red="0.12156862745098039" green="0.13333333333333333" blue="0.25882352941176467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icvideohome" translatesAutoresizingMaskIntoConstraints="NO" id="MEY-ad-vGC">
+                        <rect key="frame" x="16" y="16" width="20.5" height="20.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="MEY-ad-vGC" secondAttribute="height" multiplier="1:1" id="H9Z-GS-Wy1"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Trz-xx-XC2">
+                        <rect key="frame" x="44.5" y="14" width="53" height="24"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="myAutoFontSize" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhG-rV-8Lq">
+                        <rect key="frame" x="82.5" y="367" width="71" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="lhG-rV-8Lq" secondAttribute="height" multiplier="128:43" id="1wi-u0-qqC"/>
+                        </constraints>
+                        <state key="normal" image="btnXemThemBlack"/>
+                        <connections>
+                            <action selector="btnXemThem:" destination="gTV-IL-0wX" eventType="touchUpInside" id="nY9-V4-oRH"/>
+                        </connections>
+                    </button>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="i88-2e-PPi">
+                        <rect key="frame" x="16" y="54" width="204" height="297"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="999" constant="297" id="Ykv-9f-O1g"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eLY-iO-EKc">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="i88-2e-PPi" secondAttribute="trailing" constant="16" id="09Z-tI-78c"/>
+                <constraint firstAttribute="bottom" secondItem="lhG-rV-8Lq" secondAttribute="bottom" constant="16" id="4JN-1C-vGA"/>
+                <constraint firstItem="i88-2e-PPi" firstAttribute="top" secondItem="Trz-xx-XC2" secondAttribute="bottom" constant="16" id="Hyh-F6-cGF"/>
+                <constraint firstAttribute="trailing" secondItem="VfD-UF-BNj" secondAttribute="trailing" id="NB8-Fh-Inj"/>
+                <constraint firstItem="lhG-rV-8Lq" firstAttribute="width" secondItem="VfD-UF-BNj" secondAttribute="width" multiplier="0.3" id="QcA-xe-QYM"/>
+                <constraint firstItem="MEY-ad-vGC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="VjE-cp-nIu"/>
+                <constraint firstItem="i88-2e-PPi" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="Ylp-a4-0nq"/>
+                <constraint firstAttribute="bottom" secondItem="VfD-UF-BNj" secondAttribute="bottom" id="aAU-AR-sor"/>
+                <constraint firstItem="VfD-UF-BNj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="blp-4z-lpR"/>
+                <constraint firstItem="MEY-ad-vGC" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.05" id="eoI-Om-cI5"/>
+                <constraint firstItem="VfD-UF-BNj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ezi-M3-wC1"/>
+                <constraint firstItem="lhG-rV-8Lq" firstAttribute="top" secondItem="i88-2e-PPi" secondAttribute="bottom" constant="16" id="lA2-Ab-WqC"/>
+                <constraint firstItem="lhG-rV-8Lq" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="vIH-3G-IEf"/>
+                <constraint firstItem="Trz-xx-XC2" firstAttribute="centerY" secondItem="MEY-ad-vGC" secondAttribute="centerY" id="xbG-g8-bnK"/>
+                <constraint firstItem="Trz-xx-XC2" firstAttribute="leading" secondItem="MEY-ad-vGC" secondAttribute="trailing" constant="8" id="xpf-Am-6LN"/>
+                <constraint firstItem="MEY-ad-vGC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="zXc-6X-e6c"/>
+            </constraints>
+            <size key="customSize" width="236" height="407"/>
+            <connections>
+                <outlet property="btnXemThem" destination="lhG-rV-8Lq" id="wlf-G2-RK8"/>
+                <outlet property="clv" destination="i88-2e-PPi" id="vE5-t5-Uj5"/>
+                <outlet property="heightClv" destination="Ykv-9f-O1g" id="Zbu-WJ-9eg"/>
+            </connections>
+            <point key="canvasLocation" x="-49.275362318840585" y="195.20089285714286"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="btnXemThemBlack" width="256" height="86"/>
+        <image name="icvideohome" width="125" height="125"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

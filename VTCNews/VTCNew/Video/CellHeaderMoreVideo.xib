@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CellHeaderMoreVideo" customModule="VTVNew" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="317" height="161"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="317" height="161"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJn-nX-dhu">
+                        <rect key="frame" x="16" y="16" width="285" height="18.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Agc-uS-5e8">
+                        <rect key="frame" x="16" y="50.5" width="37.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.75686274509999996" green="0.75686274509999996" blue="0.75686274509999996" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="myAutoFontSize" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SpL-lX-8o5">
+                        <rect key="frame" x="61.5" y="50.5" width="37.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.63921568630000003" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="myAutoFontSize" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Label" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0T-y0-bl6">
+                        <rect key="frame" x="16" y="84.5" width="285" height="20.5"/>
+                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                        <color key="textColor" red="0.31764705882352939" green="0.31764705882352939" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" text="Video liên quan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UN8-sG-7dv">
+                        <rect key="frame" x="16" y="121" width="146" height="24"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="Agc-uS-5e8" firstAttribute="top" secondItem="rJn-nX-dhu" secondAttribute="bottom" constant="16" id="1JX-d4-7tt"/>
+                <constraint firstItem="rJn-nX-dhu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="6aR-cA-TDc"/>
+                <constraint firstAttribute="trailing" secondItem="U0T-y0-bl6" secondAttribute="trailing" constant="16" id="7BP-4j-O21"/>
+                <constraint firstItem="UN8-sG-7dv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="7mb-X8-KlV"/>
+                <constraint firstItem="UN8-sG-7dv" firstAttribute="top" secondItem="U0T-y0-bl6" secondAttribute="bottom" constant="16" id="Dp3-4d-JtV"/>
+                <constraint firstItem="U0T-y0-bl6" firstAttribute="top" secondItem="Agc-uS-5e8" secondAttribute="bottom" constant="16" id="F0W-lN-aBp"/>
+                <constraint firstItem="SpL-lX-8o5" firstAttribute="leading" secondItem="Agc-uS-5e8" secondAttribute="trailing" constant="8" id="Haf-hR-1YI"/>
+                <constraint firstItem="Agc-uS-5e8" firstAttribute="leading" secondItem="rJn-nX-dhu" secondAttribute="leading" id="JMP-cO-rRz"/>
+                <constraint firstItem="U0T-y0-bl6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="Omi-lc-OhR"/>
+                <constraint firstAttribute="trailing" secondItem="rJn-nX-dhu" secondAttribute="trailing" constant="16" id="WG2-Fi-6o8"/>
+                <constraint firstItem="rJn-nX-dhu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="lBV-eB-I6v"/>
+                <constraint firstItem="SpL-lX-8o5" firstAttribute="top" secondItem="Agc-uS-5e8" secondAttribute="top" id="mhk-Ln-Dgo"/>
+                <constraint firstAttribute="bottom" secondItem="UN8-sG-7dv" secondAttribute="bottom" constant="16" id="viS-VT-4yo"/>
+            </constraints>
+            <size key="customSize" width="317" height="161"/>
+            <connections>
+                <outlet property="lblCateName" destination="SpL-lX-8o5" id="A6B-EK-OWP"/>
+                <outlet property="lblDes" destination="U0T-y0-bl6" id="Nss-9K-XUc"/>
+                <outlet property="lblPublished" destination="Agc-uS-5e8" id="7Mj-vo-p3w"/>
+                <outlet property="lblTitle" destination="rJn-nX-dhu" id="vFi-TJ-Edm"/>
+            </connections>
+            <point key="canvasLocation" x="255.79710144927537" y="122.20982142857142"/>
+        </collectionViewCell>
+    </objects>
+</document>
