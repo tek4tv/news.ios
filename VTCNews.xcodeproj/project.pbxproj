@@ -76,6 +76,7 @@
 		4F8FE6EE25EC8584009075CC /* CellHeaderMoreVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8FE6EC25EC8584009075CC /* CellHeaderMoreVideo.swift */; };
 		4F8FE6EF25EC8584009075CC /* CellHeaderMoreVideo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F8FE6ED25EC8584009075CC /* CellHeaderMoreVideo.xib */; };
 		4F8FE6F225ECEF5E009075CC /* ChannelHotVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8FE6F125ECEF5D009075CC /* ChannelHotVC.swift */; };
+		4FA2D318260D9217003CCBAB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FA2D317260D9217003CCBAB /* GoogleService-Info.plist */; };
 		4FA504F025BE724500AF4C41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA504EF25BE724500AF4C41 /* AppDelegate.swift */; };
 		4FA504F225BE724500AF4C41 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA504F125BE724500AF4C41 /* SceneDelegate.swift */; };
 		4FA504F725BE724500AF4C41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FA504F525BE724500AF4C41 /* Main.storyboard */; };
@@ -196,6 +197,8 @@
 		4F8FE6EC25EC8584009075CC /* CellHeaderMoreVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellHeaderMoreVideo.swift; sourceTree = "<group>"; };
 		4F8FE6ED25EC8584009075CC /* CellHeaderMoreVideo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellHeaderMoreVideo.xib; sourceTree = "<group>"; };
 		4F8FE6F125ECEF5D009075CC /* ChannelHotVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelHotVC.swift; sourceTree = "<group>"; };
+		4FA2D317260D9217003CCBAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4FA2D354260DCD8D003CCBAB /* VTCNews.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VTCNews.entitlements; sourceTree = "<group>"; };
 		4FA504EC25BE724500AF4C41 /* VTCNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VTCNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FA504EF25BE724500AF4C41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FA504F125BE724500AF4C41 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -384,6 +387,7 @@
 		4FA504EE25BE724500AF4C41 /* VTCNews */ = {
 			isa = PBXGroup;
 			children = (
+				4FA2D354260DCD8D003CCBAB /* VTCNews.entitlements */,
 				4F2261D926085ACB00CBAA5A /* Admod */,
 				4F2261DF26085ACB00CBAA5A /* Config */,
 				4F8063CA25C06FA300D662F4 /* Font */,
@@ -398,6 +402,7 @@
 				4FA504FD25BE724700AF4C41 /* LaunchScreen.storyboard */,
 				4FA5050025BE724700AF4C41 /* Info.plist */,
 				4FA504F825BE724500AF4C41 /* VTVNew.xcdatamodeld */,
+				4FA2D317260D9217003CCBAB /* GoogleService-Info.plist */,
 				4F8FE6C125E65F3D009075CC /* PlayerViewController.swift */,
 			);
 			path = VTCNews;
@@ -663,6 +668,7 @@
 				4F8063DA25C06FC900D662F4 /* helveticaneuebolditalic.ttf in Resources */,
 				4F8063E325C06FC900D662F4 /* HelveticaNeue-MediumItalic.ttf in Resources */,
 				4F2261E526085ACB00CBAA5A /* nativeAdmobTBLCell.xib in Resources */,
+				4FA2D318260D9217003CCBAB /* GoogleService-Info.plist in Resources */,
 				4F8063D925C06FC900D662F4 /* HelveticaNeue-Light.ttf in Resources */,
 				4FC5FEE225FA1EB100FFB8EF /* CellAudioHome.xib in Resources */,
 				4FD1739725E4F03B0031602E /* CellBotSideMenu.xib in Resources */,
@@ -959,6 +965,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = VTCNews/VTCNews.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WSP6ZUF48P;
@@ -982,6 +989,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = VTCNews/VTCNews.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WSP6ZUF48P;

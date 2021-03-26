@@ -17,5 +17,6 @@ pod 'Toast-Swift'
 pod 'TagListView'
 pod 'Google-Mobile-Ads-SDK'
 pod 'FBAudienceNetwork'
-
+pod 'Firebase/Analytics'
+pod 'Firebase/Messaging'
 end
