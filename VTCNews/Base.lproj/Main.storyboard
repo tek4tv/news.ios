@@ -286,7 +286,7 @@
         <!--WellcomeVC-->
         <scene sceneID="uez-8H-cfN">
             <objects>
-                <viewController id="uPl-3u-FSO" customClass="WellcomeVC" customModule="VTCNews" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WellcomeVC" id="uPl-3u-FSO" customClass="WellcomeVC" customModule="VTCNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dhF-l3-727">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

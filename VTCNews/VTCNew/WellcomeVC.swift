@@ -10,7 +10,13 @@ var listMenu = [ModelMenu]()
 let scale = UIScreen.main.bounds.height / 896
 
 class WellcomeVC: UIViewController {
-    
+    var id = 0{
+        didSet{
+            let vc = storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! RootTabbar
+            vc.idNoti = id
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true

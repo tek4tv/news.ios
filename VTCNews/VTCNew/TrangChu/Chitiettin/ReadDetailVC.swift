@@ -21,7 +21,7 @@ class ReadDetailVC: UIViewController, WKNavigationDelegate {
     
     var sizeCmt:CGFloat = 0
     @IBOutlet weak var lblAuthor: UILabel!
-
+    
     @IBOutlet weak var clvThemThongTin: UICollectionView!
     @IBOutlet weak var heightClvThemThongTin: NSLayoutConstraint!
     @IBOutlet weak var tblComment: UITableView!
@@ -67,9 +67,7 @@ class ReadDetailVC: UIViewController, WKNavigationDelegate {
     
     var id:Int = 0 {
         didSet{
-            getChitiettin(id: id)
-            getComment(id: id, page: 1)
-            print(id)
+            print("sdsdsds: \(id)")
         }
     }
     
@@ -84,7 +82,7 @@ class ReadDetailVC: UIViewController, WKNavigationDelegate {
     @objc func back(){
         self.navigationController?.popViewController(animated: true)
     }
-
+    
     @IBOutlet weak var tagListView: TagListView!
     @IBOutlet weak var btnLike: UIView!
     @IBAction func btnShareTwiter(_ sender: Any) {
@@ -115,6 +113,8 @@ class ReadDetailVC: UIViewController, WKNavigationDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        iMes = false
         btnLike.layer.masksToBounds = true
         btnLike.layer.cornerRadius = scale * 5
         
@@ -175,7 +175,10 @@ class ReadDetailVC: UIViewController, WKNavigationDelegate {
         tfBinhLuan.layer.borderColor = UIColor(hexString: "e5e5e5").cgColor
         btnSendComent.layer.masksToBounds = true
         btnSendComent.layer.cornerRadius = scale * 5
-
+        
+        
+        getChitiettin(id: id)
+        getComment(id: id, page: 1)
     }
     
     
@@ -313,13 +316,13 @@ class ReadDetailVC: UIViewController, WKNavigationDelegate {
             if let rs = img {
                 self.imgString = rs
                 DispatchQueue.main.async {
-
+                    
                 }
             }
             if let rs = listTag {
                 self.listTag = rs
                 DispatchQueue.main.async {
-
+                    
                 }
             }
             if let rs = listArticleRelated {
@@ -396,7 +399,7 @@ extension ReadDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
         }
         vc.id = id
         self.navigationController?.pushViewController(vc, animated: true)
-
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -503,7 +506,7 @@ extension ReadDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
         
     }
     
-
+    
 }
 extension ReadDetailVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -16,6 +16,15 @@ var isPlayingVideo = false
 
 class RootTabbar: UITabBarController {
     
+    var idNoti = 0 {
+        didSet{
+            let vc = storyboard?.instantiateViewController(withIdentifier: "ReadDetailVC") as! ReadDetailVC
+            vc.id = idNoti
+            self.navigationController?.pushViewController(vc, animated: true)
+
+        }
+    }
+    
     let activityIndicatorView: UIActivityIndicatorView = {
             let aiv = UIActivityIndicatorView(style: .whiteLarge)
             aiv.translatesAutoresizingMaskIntoConstraints = false
@@ -390,7 +399,7 @@ class RootTabbar: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         viewVideoPlaying.addSubview(activityIndicatorView)
                 activityIndicatorView.centerXAnchor.constraint(equalTo: viewVideoPlaying.centerXAnchor).isActive = true
                 activityIndicatorView.centerYAnchor.constraint(equalTo: viewVideoPlaying.centerYAnchor).isActive = true

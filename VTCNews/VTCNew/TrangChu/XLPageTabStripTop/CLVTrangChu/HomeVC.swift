@@ -10,7 +10,11 @@ import SideMenu
 import Toast_Swift
 
 class HomeVC: UIViewController {
-    
+    var idArticle = 0 {
+        didSet{
+            print("idArticle: \(idArticle)")
+        }
+    }
     
     @IBOutlet weak var scrollView: UIScrollView!
     private let refreshControl = UIRefreshControl()
@@ -53,7 +57,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var heightClvAudio: NSLayoutConstraint!
     @IBOutlet weak var heightClvSuggestionHome3: NSLayoutConstraint!
     
-
+    
     
     @IBOutlet weak var viewIcHome: UIView!
     var listMenuShow = [ModelMenu]()
@@ -146,9 +150,26 @@ class HomeVC: UIViewController {
             self.refreshControl.endRefreshing()
         }
     }
+    @objc func openDetail(_ sender: Notification){
+        let id = sender.userInfo?["id"] as! Int
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ReadDetailVC") as! ReadDetailVC
+        vc.id = id
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.post(name: NSNotification.Name("callAppdelegate"), object: nil)
+    }
+    @objc func listener(_ sender: Notification){
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ReadDetailVC") as! ReadDetailVC
+        vc.id = idGloba
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(openDetail(_:)), name: NSNotification.Name("openDetail"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(listener(_:)), name: NSNotification.Name("openReadDetail"), object: nil)
         
         refreshControl.addTarget(self, action: #selector(didPullToRefresh(_:)), for: .valueChanged)
             scrollView.alwaysBounceVertical = true

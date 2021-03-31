@@ -11,10 +11,17 @@ import GoogleMobileAds
 import Firebase
 import FirebaseMessaging
 
+
+var iMes = false
+var idGloba: Int = 0
+
 @available(iOS 13.0, *)
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {
     var window: UIWindow?
+    
+    let gcmMessageIDKey = "gcm.message_id"
+    
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -23,7 +30,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         Messaging.messaging().delegate = self //Nhận các message từ FirebaseMessaging
         configApplePush(application) // đăng ký nhận push.
         
+        NotificationCenter.default.addObserver(self, selector: #selector(listener(_:)), name: NSNotification.Name("callAppdelegate"), object: nil)
+        
         return true
+    }
+    
+    @objc func listener(_ sender: Notification){
+        if iMes {
+            NotificationCenter.default.post(name: NSNotification.Name("openReadDetail"), object: nil)
+        }
     }
     func configApplePush(_ application: UIApplication) {
         if #available(iOS 10.0, *) {
@@ -44,10 +59,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         if let token = Messaging.messaging().fcmToken {
             print("FCM token: \(token)")
         }
+        
+        print("1111111111")
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken
+        print("2222222222")
     }
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
@@ -57,15 +75,66 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
         // TODO: If necessary send token to application server.
         // Note: This callback is fired at each app startup and whenever a new token is generated.
+        print("3333333333")
     }
     
     func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
         //Nhận được fcmToken,lưu lại và gửi lên back-end khi làm app thực tế
+        print("444444444444")
+        print("mes: \(messaging)")
     }
     func application(application: UIApplication,
                      didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken
+        print("555555555555")
     }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        let userInfo = notification.request.content.userInfo
+        // Print message ID.
+        if let messageID = userInfo[gcmMessageIDKey] {
+            print("Message ID: \(messageID)")
+        }
+        
+        // Print full message.
+        print("userInfo 1st")
+        print(userInfo)
+        
+        let id = userInfo["data"]
+        
+        print(id ?? "")
+        
+        // Change this to your preferred presentation option
+        completionHandler([])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        // Print message ID.
+        if let messageID = userInfo[gcmMessageIDKey] {
+            print("Message ID: \(messageID)")
+        }
+        
+        // Print full message.
+        print("userInfo 2nd")
+        print(userInfo)
+        
+        
+        
+        if let id = (userInfo["data"] as? NSString)?.intValue {
+            NotificationCenter.default.post(name: NSNotification.Name("openDetail"), object: nil, userInfo: ["id":Int(id)])
+            idGloba = Int(id)
+            iMes = true
+        }
+        
+        completionHandler()
+    }
+    
+    
     
     // MARK: UISceneSession Lifecycle
     

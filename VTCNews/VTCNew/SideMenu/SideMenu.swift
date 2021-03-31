@@ -32,7 +32,6 @@ class SideMenu: UIViewController {
                          cellData(opened: false, title: "Video", sectionData: [], img: "icSMVideo", imgDown: ""),
                          cellData(opened: false, title: "Audio", sectionData: ["Podcast","Sách nói","Âm nhạc"], img: "icSMAudio", imgDown: "icSMDown"),
                          cellData(opened: false, title: "", sectionData: [], img: "", imgDown: "")]
-        
     }
 }
 
@@ -58,8 +57,6 @@ extension SideMenu: UITableViewDelegate, UITableViewDataSource{
         } else {
             return 1
         }
-        
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -86,8 +83,6 @@ extension SideMenu: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
         
         switch indexPath.section {
         case 1:
