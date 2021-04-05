@@ -18,7 +18,7 @@ class VideoVC: UIViewController {
     private let refreshControl = UIRefreshControl()
 
     var listData = [ModelVideoTab]()
-    var page = 1
+    var page = 0
     var dataVideo = [ModelVideoDetail]()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,7 +73,7 @@ class VideoVC: UIViewController {
         menuBarItemRight.customView?.heightAnchor.constraint(equalToConstant: 24).isActive = true
         self.navigationItem.rightBarButtonItem = menuBarItemRight
         
-        getVideoHome(page: page)
+        getVideoFirst()
         clv.delegate = self
         clv.dataSource = self
         clv.register(UINib(nibName: "CellRootVideoHome", bundle: nil), forCellWithReuseIdentifier: "CellRootVideoHome")
@@ -130,6 +130,17 @@ class VideoVC: UIViewController {
         }
     }
     
+    func getVideoFirst(){
+        APIService.shared.getVideo0Tab(){
+            (response, error) in
+            if let rs = response{
+                self.listData.append(contentsOf: rs)
+                DispatchQueue.main.async {
+                    self.clv.reloadData()
+                }
+            }
+        }
+    }
 }
 
 

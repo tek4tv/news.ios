@@ -54,8 +54,16 @@
                         <rect key="frame" x="16" y="192" width="422" height="1"/>
                         <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="0Bg-58-3c1"/>
-                            <constraint firstAttribute="height" constant="1" id="NZg-Ij-6mO"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="0Bg-58-3c1">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstAttribute="height" constant="1" id="NZg-Ij-6mO">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgK-Rw-cxD">
@@ -75,8 +83,16 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="xgK-Rw-cxD" firstAttribute="top" secondItem="0lS-oB-FvG" secondAttribute="top" id="8oM-u7-P72"/>
-                    <constraint firstItem="KDU-ZW-E2t" firstAttribute="leading" secondItem="Kfy-Z6-07r" secondAttribute="leading" constant="16" id="HtB-86-tK5"/>
+                    <constraint firstItem="xgK-Rw-cxD" firstAttribute="top" secondItem="0lS-oB-FvG" secondAttribute="top" id="8oM-u7-P72">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </constraint>
+                    <constraint firstItem="KDU-ZW-E2t" firstAttribute="leading" secondItem="Kfy-Z6-07r" secondAttribute="leading" constant="16" id="HtB-86-tK5">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </constraint>
                     <constraint firstItem="Xlo-mF-cSj" firstAttribute="top" secondItem="r5V-bU-w7d" secondAttribute="bottom" constant="16" id="NEj-fx-c6I">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
@@ -87,7 +103,11 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </constraint>
-                    <constraint firstItem="BLc-Oy-zxG" firstAttribute="top" secondItem="KDU-ZW-E2t" secondAttribute="bottom" constant="16" id="R2a-3X-4k5"/>
+                    <constraint firstItem="BLc-Oy-zxG" firstAttribute="top" secondItem="KDU-ZW-E2t" secondAttribute="bottom" constant="16" id="R2a-3X-4k5">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </constraint>
                     <constraint firstItem="FgJ-R5-oxk" firstAttribute="leading" secondItem="Kfy-Z6-07r" secondAttribute="leading" constant="16" id="Y78-H1-pRc">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
@@ -98,7 +118,11 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </constraint>
-                    <constraint firstItem="KDU-ZW-E2t" firstAttribute="top" secondItem="0lS-oB-FvG" secondAttribute="bottom" constant="16" id="bKh-Pe-Twy"/>
+                    <constraint firstItem="KDU-ZW-E2t" firstAttribute="top" secondItem="0lS-oB-FvG" secondAttribute="bottom" constant="16" id="bKh-Pe-Twy">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </constraint>
                     <constraint firstItem="r5V-bU-w7d" firstAttribute="top" secondItem="FgJ-R5-oxk" secondAttribute="bottom" id="gKd-C2-gUl">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
@@ -114,7 +138,11 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </constraint>
-                    <constraint firstItem="xgK-Rw-cxD" firstAttribute="bottom" secondItem="0lS-oB-FvG" secondAttribute="bottom" id="lxf-eq-5mQ"/>
+                    <constraint firstItem="xgK-Rw-cxD" firstAttribute="bottom" secondItem="0lS-oB-FvG" secondAttribute="bottom" id="lxf-eq-5mQ">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </constraint>
                     <constraint firstItem="FgJ-R5-oxk" firstAttribute="top" secondItem="Kfy-Z6-07r" secondAttribute="top" constant="16" id="mdf-RU-4yW">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>

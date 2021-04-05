@@ -22,6 +22,7 @@ class ReadDetailVC: UIViewController, WKNavigationDelegate {
     var sizeCmt:CGFloat = 0
     @IBOutlet weak var lblAuthor: UILabel!
     
+    @IBOutlet weak var lblDes: UILabel!
     @IBOutlet weak var clvThemThongTin: UICollectionView!
     @IBOutlet weak var heightClvThemThongTin: NSLayoutConstraint!
     @IBOutlet weak var tblComment: UITableView!
@@ -52,7 +53,7 @@ class ReadDetailVC: UIViewController, WKNavigationDelegate {
     
     @IBOutlet weak var heightClvCungChuyenMuc: NSLayoutConstraint!
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.heightWebview.constant = webView.scrollView.contentSize.height
             self.heightClvThemThongTin.constant = scale * 135 * CGFloat(self.listArticleRelated.count)
             self.heightClvCungChuyenMuc.constant = scale * 135 * CGFloat(self.listDanhSachTin.count)
@@ -111,9 +112,11 @@ class ReadDetailVC: UIViewController, WKNavigationDelegate {
             clvCungChuyenMuc.reloadData()
         }
     }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         iMes = false
         btnLike.layer.masksToBounds = true
         btnLike.layer.cornerRadius = scale * 5
@@ -179,7 +182,9 @@ class ReadDetailVC: UIViewController, WKNavigationDelegate {
         
         getChitiettin(id: id)
         getComment(id: id, page: 1)
+        
     }
+
     
     
     func getData(page: Int, id: Int){
@@ -199,7 +204,7 @@ class ReadDetailVC: UIViewController, WKNavigationDelegate {
             if let rs = response {
                 self.chitietTin = rs
                 DispatchQueue.main.async {
-                    
+                    self.lblDes.text = self.chitietTin.description
                     self.lblTitle.text = self.chitietTin.title
                     self.lblCategoryName.text = self.chitietTin.categoryName
                     self.lblAuthor.text = self.chitietTin.author
@@ -211,6 +216,8 @@ class ReadDetailVC: UIViewController, WKNavigationDelegate {
                     self.tagListView.addTag("Tag:")
                     self.tagListView.textColor = UIColor(hexString: "#1b6eae")
                     self.tagListView.textFont = UIFont.systemFont(ofSize: 17)
+                    
+                    print("HeightTagView: \(self.tagListView.intrinsicContentSize)")
                     for i in self.listTag{
                         let tagView = self.tagListView.addTag("\(i.tagName),")
                         tagView.onTap = { tagView in
@@ -239,7 +246,7 @@ class ReadDetailVC: UIViewController, WKNavigationDelegate {
                                 
                         <style>
                           body {
-                            font-size: 35px;
+                            font-size: 40px;
                             margin-left: 10px;
                             margin-right: 10px;
                           }
@@ -248,6 +255,15 @@ class ReadDetailVC: UIViewController, WKNavigationDelegate {
                         img {
                           width: 100%;
                         }
+                        blockquote{
+                          font-size: 40px !important;
+                          line-height: 50px !important;
+                        }
+                        .expEdit{
+                          font-size: 18px !important;
+                          line-height: 20px !important;
+                        }
+                        
                         .vjs-big-play-button {
                         top: 50% ;
                         left: 50% ;
@@ -308,6 +324,7 @@ class ReadDetailVC: UIViewController, WKNavigationDelegate {
                         </script>
                       </body>
                       </html>
+
                     """
                     
                     self.wbContent.loadHTMLString(html, baseURL: nil)
@@ -362,6 +379,9 @@ class ReadDetailVC: UIViewController, WKNavigationDelegate {
             }
             if let rs = totalAllRecord {
                 self.countComment = rs
+                if self.countComment == 0 {
+                    self.heightTblComment.constant = 0
+                }
                 self.lblCountCmt.text = String(self.countComment)
                 self.btnXemThem.setTitle("Xem tất cả bình luận", for: .normal)
             }
@@ -503,10 +523,7 @@ extension ReadDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
         } else {
             return CGSize(width: DEVICE_WIDTH, height: 0)
         }
-        
     }
-    
-    
 }
 extension ReadDetailVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -542,6 +559,7 @@ extension ReadDetailVC: UITableViewDelegate, UITableViewDataSource {
             cell.btnMoreReplyConstrainTop.constant = scale * -4
             cell.btnMoreReplyConstrainBottom.constant = scale * -4
         }
+        
         if listComment.count != 0 {
             DispatchQueue.main.async {
                 self.sizeCmt += cell.contentView.bounds.height

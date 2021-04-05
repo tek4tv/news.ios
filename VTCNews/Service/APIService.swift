@@ -148,6 +148,23 @@ class APIService{
         })
     }
     
+    func getVideo0Tab(closure: @escaping (_ response: [ModelVideoTab]?, _ error: Error?) -> Void) {
+        AF.request("https://api.vtcnews.tek4tv.vn/api/home/news/Video/VideoHot/27", method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).responseJSON(completionHandler: { (response) in
+            switch response.result {
+            case .success(let value):
+                var listDSTin = [ModelVideoTab]()
+                let json = JSON(value).arrayValue
+                for i in json {
+                    let c = ModelVideoTab(json: i)
+                    listDSTin.append(c)
+                }
+                closure(listDSTin, nil)
+            case .failure(let error):
+                print(error)
+            }
+        })
+    }
+    
     func getSachNoi(closure: @escaping (_ response: [ModelSachNoi]?, _ error: Error?) -> Void) {
         AF.request("https://api.vtcnews.tek4tv.vn/api/podcast/GetAlbumPaging/chanId/3/pageIndex/1", method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).responseJSON(completionHandler: { (response) in
             switch response.result {

@@ -438,8 +438,8 @@ class RootTabbar: UITabBarController {
         tabBarIteam.image = deSelectedImage2
         tabBarIteam.selectedImage = selectedImage2
         
-        let selectedImage3 = UIImage(named: "audio_white_svg")?.withRenderingMode(.alwaysOriginal)
-        let deSelectedImage3 = UIImage(named: "audio_grey_svg")?.withRenderingMode(.alwaysOriginal)
+        let selectedImage3 = UIImage(named: "icHeadPhoneSelected-24-svg")?.withRenderingMode(.alwaysOriginal)
+        let deSelectedImage3 = UIImage(named: "icHeadPhoneUnselect-24-svg")?.withRenderingMode(.alwaysOriginal)
         tabBarIteam = self.tabBar.items![3]
         tabBarIteam.image = deSelectedImage3
         tabBarIteam.selectedImage = selectedImage3

@@ -40,7 +40,7 @@ open class TagListView: UIView {
         }
     }
     
-    @IBInspectable open dynamic var tagBackgroundColor: UIColor = .clear {
+    @IBInspectable open dynamic var tagBackgroundColor: UIColor = UIColor.gray {
         didSet {
             tagViews.forEach {
                 $0.tagBackgroundColor = tagBackgroundColor
@@ -103,7 +103,7 @@ open class TagListView: UIView {
             }
         }
     }
-    @IBInspectable open dynamic var paddingX: CGFloat = 0 {
+    @IBInspectable open dynamic var paddingX: CGFloat = 5 {
         didSet {
             defer { rearrangeViews() }
             tagViews.forEach {

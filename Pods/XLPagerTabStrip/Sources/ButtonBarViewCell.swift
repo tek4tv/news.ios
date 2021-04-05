@@ -37,10 +37,6 @@ open class ButtonBarViewCell: UICollectionViewCell {
         accessibilityTraits.insert([.button, .header])
     }
     
-    open override func prepareForReuse() {
-        imageView.image = nil
-    }
-    
     open override var isSelected: Bool {
         get {
             return super.isSelected

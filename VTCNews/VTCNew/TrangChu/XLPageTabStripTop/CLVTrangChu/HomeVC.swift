@@ -15,10 +15,11 @@ class HomeVC: UIViewController {
             print("idArticle: \(idArticle)")
         }
     }
+    var page = 1
     
     @IBOutlet weak var scrollView: UIScrollView!
     private let refreshControl = UIRefreshControl()
-
+    
     
     @IBOutlet weak var imgHeaderArtilce: UIImageView!
     @IBOutlet weak var lblTitleHeaderArticle: UILabel!
@@ -72,7 +73,8 @@ class HomeVC: UIViewController {
     var listVideoHome = [ModelVideoHome]()
     var listAmNhac = [ModelAmNhac]()
     var listPodCast = [ModelPodCast]()
-
+    var listTinmoi = [ModelDanhSachTin]()
+    
     //conect outlet Collectionview
     @IBOutlet weak var clvTabMenu: UICollectionView!
     
@@ -115,7 +117,7 @@ class HomeVC: UIViewController {
             (response, error) in
             
             var dataVideo = [ModelVideoDetail]()
-
+            
             if let rs = response {
                 dataVideo = rs
             }
@@ -139,6 +141,8 @@ class HomeVC: UIViewController {
     
     @objc
     private func didPullToRefresh(_ sender: Any) {
+        page = 1
+        listTinmoi.removeAll()
         getDataArticleHot()
         getSuggestionHome()
         getSachNoi()
@@ -146,6 +150,7 @@ class HomeVC: UIViewController {
         getPodcast()
         getDataChanelHot()
         getVideoHome()
+        getTinMoi(page: page)
         DispatchQueue.main.asyncAfter(deadline: .now()+1) {
             self.refreshControl.endRefreshing()
         }
@@ -172,9 +177,9 @@ class HomeVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(listener(_:)), name: NSNotification.Name("openReadDetail"), object: nil)
         
         refreshControl.addTarget(self, action: #selector(didPullToRefresh(_:)), for: .valueChanged)
-            scrollView.alwaysBounceVertical = true
+        scrollView.alwaysBounceVertical = true
         scrollView.refreshControl = refreshControl
-
+        
         clvTabMenu.delegate = self
         clvTabMenu.dataSource = self
         clvArticleHome.delegate = self
@@ -262,6 +267,7 @@ class HomeVC: UIViewController {
         getPodcast()
         getDataChanelHot()
         getVideoHome()
+        getTinMoi(page: page)
         
         for i in listMenu {
             if i.orderMobile > 0 && i.parentID! == 0  {
@@ -271,6 +277,18 @@ class HomeVC: UIViewController {
         heightClvAudio.constant = 3 * scale * 165 + scale*80
         heightClvVideo.constant = 2 * scale * 210 + scale*110
         menuBtnRight.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapSearch(_:))))
+        scrollView.delegate = self
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let height = scrollView.frame.size.height
+            let contentYoffset = scrollView.contentOffset.y
+            let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+            if distanceFromBottom < height + scale * 2500 {
+                page = page + 1
+                getTinMoi(page: page)
+                clvSuggestionHome3.reloadData()
+            }
     }
     
     @objc func tapSearch(_ sender: UITapGestureRecognizer){
@@ -294,7 +312,7 @@ class HomeVC: UIViewController {
                     self.lblCategoryHeaderArticle.text = self.listArticle[0].categoryName
                     
                     self.lblTitleHeaderArticle.text = self.listArticle[0].title
-
+                    
                     if let url = URL(string: self.listArticle[0].image169Large){
                         self.imgHeaderArtilce.kf.setImage(with: url)
                     }
@@ -338,7 +356,19 @@ class HomeVC: UIViewController {
                     
                     self.heightClvSuggestionHome1.constant = CGFloat(self.listSugestionHome0.count) * scale * 135
                     self.heightClvSuggestionHome2.constant = CGFloat(self.listSugestionHome1.count) * scale * 135
-                    self.heightClvSuggestionHome3.constant = CGFloat(self.listSugestionHome2.count) * scale * 135
+                }
+            }
+        }
+    }
+    
+    func getTinMoi(page:Int){
+        APIService.shared.getTinMoi(page: page){
+            (response, error) in
+            if let rs = response{
+                self.listTinmoi.append(contentsOf: rs)
+                DispatchQueue.main.async {
+                    self.clvSuggestionHome3.reloadData()
+                    self.heightClvSuggestionHome3.constant = CGFloat(self.listTinmoi.count) * scale * 135
                 }
             }
         }
@@ -429,7 +459,7 @@ class HomeVC: UIViewController {
         
         let layoutclvAudio = UICollectionViewFlowLayout()
         clvAudio.collectionViewLayout = layoutclvAudio
-
+        
     }
     
 }
@@ -465,8 +495,8 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
                     cell.img.kf.setImage(with: url)
                 }
             }
-           
-      
+            
+            
             return cell
         } else if collectionView.tag == 2 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellChanelHot", for: indexPath) as! CellChanelHot
@@ -601,25 +631,27 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellCLV1", for: indexPath) as! CellCLV1
-            if listSugestionHome2[indexPath.row].isVideoArticle == 1 {
+            
+            if listTinmoi[indexPath.row].isVideoArticle == 1 {
                 cell.icVideo.isHidden = false
             } else {
                 cell.icVideo.isHidden = true
             }
-            if listSugestionHome2.count != 0 {
-                let schedule = listSugestionHome2[indexPath.row].publishedDate
+            
+            if listTinmoi.count != 0 {
+                let schedule = listTinmoi[indexPath.row].publishedDate
                 let timePass = publishedDate(schedule: schedule)
                 cell.lblPublished.text = timePass
             } else {
                 cell.lblPublished.text = ""
             }
             
-            cell.lblCategory.text = listArticle.count != 0 ? listSugestionHome2[indexPath.row].categoryName : ""
+            cell.lblCategory.text = listArticle.count != 0 ? listTinmoi[indexPath.row].categoryName : ""
             
-            cell.lblTitle.text = listSugestionHome2[indexPath.row].title
+            cell.lblTitle.text = listTinmoi[indexPath.row].title
             
-            if listSugestionHome2.count != 0 {
-                let url = URL(string: listSugestionHome2[indexPath.row].image169)
+            if listTinmoi.count != 0 {
+                let url = URL(string: listTinmoi[indexPath.row].image)
                 cell.img.kf.setImage(with: url){ result in
                     cell.img.stopSkeletonAnimation()
                     cell.img.hideSkeleton(reloadDataAfter: true, transition: .none)
@@ -632,7 +664,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         }
     }
     
-        
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView.tag == 0 {
             return listMenuShow.count
@@ -649,10 +681,10 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         }else if collectionView.tag == 6 {
             return 3
         }else {
-            return listSugestionHome2.count
+            return listTinmoi.count
         }
     }
-
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView.tag == 0 {
@@ -714,7 +746,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
                 (response, error) in
                 
                 var dataVideo = [ModelVideoDetail]()
-
+                
                 if let rs = response {
                     dataVideo = rs
                 }
@@ -764,23 +796,23 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             vc.id = id
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
-            if listSugestionHome2[indexPath.row].isVideoArticle == 0 {
+            if listTinmoi[indexPath.row].isVideoArticle == 0 {
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ReadDetailVC") as! ReadDetailVC
-                vc.id = listSugestionHome2[indexPath.row].id
+                vc.id = listTinmoi[indexPath.row].id
                 self.navigationController?.pushViewController(vc, animated: true)
-
+                
             } else {
                 var dataVideo = [ModelVideoDetail]()
-                APIService.shared.getVideoDetail(id: self.listSugestionHome2[indexPath.row].id){
+                APIService.shared.getVideoDetail(id: self.listTinmoi[indexPath.row].id){
                     (response, error) in
                     if let rs = response {
                         dataVideo = rs
                     }
                     
                     if dataVideo.count != 0 {
-                        let schedule = self.listSugestionHome2[indexPath.row].publishedDate
+                        let schedule = self.listTinmoi[indexPath.row].publishedDate
                         let timePass = publishedDate(schedule: schedule)
-                        NotificationCenter.default.post(name: Notification.Name("openVideo"), object: nil, userInfo: ["category":self.listSugestionHome2[indexPath.row].categoryName, "id":self.listSugestionHome2[indexPath.row].id,"name":self.listSugestionHome2[indexPath.row].title,"published":timePass,"des":self.listSugestionHome2[indexPath.row].descriptionField,"cateID":self.listSugestionHome2[indexPath.row].categoryId])
+                        NotificationCenter.default.post(name: Notification.Name("openVideo"), object: nil, userInfo: ["category":self.listTinmoi[indexPath.row].categoryName, "id":self.listTinmoi[indexPath.row].id,"name":self.listTinmoi[indexPath.row].title,"published":timePass,"des":self.listTinmoi[indexPath.row].description,"cateID":self.listTinmoi[indexPath.row].categoryID])
                     } else {
                         self.navigationController?.view.makeToast("Video bị lỗi")
                     }
@@ -789,7 +821,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         }
     }
     
-   
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView.tag == 0 {
@@ -826,6 +858,9 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
     }
+    
+    
+    
 }
 
 

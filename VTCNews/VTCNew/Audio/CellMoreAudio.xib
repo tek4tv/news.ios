@@ -39,12 +39,36 @@
                     </collectionView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="bAa-wX-Vvz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="4in-db-5in"/>
-                    <constraint firstAttribute="trailing" secondItem="1Du-CB-J0K" secondAttribute="trailing" constant="16" id="DAC-Bc-Cg9"/>
-                    <constraint firstItem="1Du-CB-J0K" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="JO9-mn-qse"/>
-                    <constraint firstItem="1Du-CB-J0K" firstAttribute="top" secondItem="bAa-wX-Vvz" secondAttribute="bottom" constant="16" id="YeI-jM-aSa"/>
-                    <constraint firstItem="bAa-wX-Vvz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="lJU-3B-Ufy"/>
-                    <constraint firstAttribute="bottom" secondItem="1Du-CB-J0K" secondAttribute="bottom" constant="16" id="q8G-Es-AtM"/>
+                    <constraint firstItem="bAa-wX-Vvz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="4in-db-5in">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </constraint>
+                    <constraint firstAttribute="trailing" secondItem="1Du-CB-J0K" secondAttribute="trailing" constant="16" id="DAC-Bc-Cg9">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </constraint>
+                    <constraint firstItem="1Du-CB-J0K" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="JO9-mn-qse">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </constraint>
+                    <constraint firstItem="1Du-CB-J0K" firstAttribute="top" secondItem="bAa-wX-Vvz" secondAttribute="bottom" constant="16" id="YeI-jM-aSa">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </constraint>
+                    <constraint firstItem="bAa-wX-Vvz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="lJU-3B-Ufy">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </constraint>
+                    <constraint firstAttribute="bottom" secondItem="1Du-CB-J0K" secondAttribute="bottom" constant="16" id="q8G-Es-AtM">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </constraint>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

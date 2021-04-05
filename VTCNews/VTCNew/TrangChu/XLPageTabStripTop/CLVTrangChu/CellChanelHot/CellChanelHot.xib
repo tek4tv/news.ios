@@ -34,23 +34,67 @@
                             </label>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="VWl-Kf-OiI" firstAttribute="leading" secondItem="hN8-n5-DfI" secondAttribute="leading" id="6bn-8e-b7j"/>
-                            <constraint firstItem="VWl-Kf-OiI" firstAttribute="height" secondItem="hN8-n5-DfI" secondAttribute="height" multiplier="0.6" id="9XM-8W-VGR"/>
-                            <constraint firstItem="Ffo-e3-aOz" firstAttribute="leading" secondItem="hN8-n5-DfI" secondAttribute="leading" constant="4" id="KnL-CG-K8U"/>
-                            <constraint firstAttribute="trailing" secondItem="VWl-Kf-OiI" secondAttribute="trailing" id="L5a-xD-ExR"/>
-                            <constraint firstItem="VWl-Kf-OiI" firstAttribute="top" secondItem="hN8-n5-DfI" secondAttribute="top" id="Oec-ar-xT1"/>
-                            <constraint firstItem="Ffo-e3-aOz" firstAttribute="top" secondItem="VWl-Kf-OiI" secondAttribute="bottom" constant="4" id="xOx-Db-G9b"/>
-                            <constraint firstAttribute="trailing" secondItem="Ffo-e3-aOz" secondAttribute="trailing" constant="4" id="xwK-6Y-f09"/>
+                            <constraint firstItem="VWl-Kf-OiI" firstAttribute="leading" secondItem="hN8-n5-DfI" secondAttribute="leading" id="6bn-8e-b7j">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="VWl-Kf-OiI" firstAttribute="height" secondItem="hN8-n5-DfI" secondAttribute="height" multiplier="0.6" id="9XM-8W-VGR">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="Ffo-e3-aOz" firstAttribute="leading" secondItem="hN8-n5-DfI" secondAttribute="leading" constant="4" id="KnL-CG-K8U">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstAttribute="trailing" secondItem="VWl-Kf-OiI" secondAttribute="trailing" id="L5a-xD-ExR">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="VWl-Kf-OiI" firstAttribute="top" secondItem="hN8-n5-DfI" secondAttribute="top" id="Oec-ar-xT1">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="Ffo-e3-aOz" firstAttribute="top" secondItem="VWl-Kf-OiI" secondAttribute="bottom" constant="4" id="xOx-Db-G9b">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstAttribute="trailing" secondItem="Ffo-e3-aOz" secondAttribute="trailing" constant="4" id="xwK-6Y-f09">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                         </constraints>
                     </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="hN8-n5-DfI" secondAttribute="bottom" id="1Nx-Ef-QOW"/>
-                <constraint firstItem="hN8-n5-DfI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ceo-7N-Rtd"/>
-                <constraint firstItem="hN8-n5-DfI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="YDT-1I-pTb"/>
-                <constraint firstAttribute="trailing" secondItem="hN8-n5-DfI" secondAttribute="trailing" id="tq2-1a-56O"/>
+                <constraint firstAttribute="bottom" secondItem="hN8-n5-DfI" secondAttribute="bottom" id="1Nx-Ef-QOW">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </constraint>
+                <constraint firstItem="hN8-n5-DfI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ceo-7N-Rtd">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </constraint>
+                <constraint firstItem="hN8-n5-DfI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="YDT-1I-pTb">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </constraint>
+                <constraint firstAttribute="trailing" secondItem="hN8-n5-DfI" secondAttribute="trailing" id="tq2-1a-56O">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </constraint>
             </constraints>
             <size key="customSize" width="136" height="177"/>
             <connections>

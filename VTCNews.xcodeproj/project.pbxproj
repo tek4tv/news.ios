@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D5845942A8B2AA5F6ABC486 /* Pods_VTCNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8639C0B1B46A7EC1FBB553 /* Pods_VTCNews.framework */; };
 		4F0A884F25C250B400C52E0F /* LazyImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0A884E25C250B400C52E0F /* LazyImageView.swift */; };
 		4F0A885A25C2669300C52E0F /* CellRootAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0A885825C2669200C52E0F /* CellRootAudio.swift */; };
 		4F0A885B25C2669300C52E0F /* CellRootAudio.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F0A885925C2669200C52E0F /* CellRootAudio.xib */; };
@@ -122,12 +123,11 @@
 		4FF90AE025C11B0100076478 /* ModelAmNhac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF90ADF25C11B0100076478 /* ModelAmNhac.swift */; };
 		4FF90AE325C11B1400076478 /* ModelPodCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF90AE225C11B1400076478 /* ModelPodCast.swift */; };
 		4FF90AFD25C1503600076478 /* ModelChitiettin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF90AFC25C1503600076478 /* ModelChitiettin.swift */; };
-		66940861875FDA3E95463B5F /* Pods_VTCNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9997173BBFA10E7DE6ACA141 /* Pods_VTCNews.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		14880ACBC01AC88D9F6A2696 /* Pods-VTCNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTCNews.release.xcconfig"; path = "Target Support Files/Pods-VTCNews/Pods-VTCNews.release.xcconfig"; sourceTree = "<group>"; };
-		46CED5EF4DF30F3860FFDCE2 /* Pods-VTVNew.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTVNew.debug.xcconfig"; path = "Target Support Files/Pods-VTVNew/Pods-VTVNew.debug.xcconfig"; sourceTree = "<group>"; };
+		39631B93F5AE2FA3F2144C7F /* Pods-VTCNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTCNews.debug.xcconfig"; path = "Target Support Files/Pods-VTCNews/Pods-VTCNews.debug.xcconfig"; sourceTree = "<group>"; };
+		4C832A31801C531F77D5EAE5 /* Pods-VTCNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTCNews.release.xcconfig"; path = "Target Support Files/Pods-VTCNews/Pods-VTCNews.release.xcconfig"; sourceTree = "<group>"; };
 		4F0A884E25C250B400C52E0F /* LazyImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyImageView.swift; sourceTree = "<group>"; };
 		4F0A885825C2669200C52E0F /* CellRootAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRootAudio.swift; sourceTree = "<group>"; };
 		4F0A885925C2669200C52E0F /* CellRootAudio.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellRootAudio.xib; sourceTree = "<group>"; };
@@ -246,9 +246,7 @@
 		4FF90ADF25C11B0100076478 /* ModelAmNhac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelAmNhac.swift; sourceTree = "<group>"; };
 		4FF90AE225C11B1400076478 /* ModelPodCast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPodCast.swift; sourceTree = "<group>"; };
 		4FF90AFC25C1503600076478 /* ModelChitiettin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelChitiettin.swift; sourceTree = "<group>"; };
-		8DA73E60690FCE137704F1ED /* Pods-VTCNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTCNews.debug.xcconfig"; path = "Target Support Files/Pods-VTCNews/Pods-VTCNews.debug.xcconfig"; sourceTree = "<group>"; };
-		9997173BBFA10E7DE6ACA141 /* Pods_VTCNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VTCNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F805D9F4CC8E6ADDFBBC52E1 /* Pods-VTVNew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTVNew.release.xcconfig"; path = "Target Support Files/Pods-VTVNew/Pods-VTVNew.release.xcconfig"; sourceTree = "<group>"; };
+		FB8639C0B1B46A7EC1FBB553 /* Pods_VTCNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VTCNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,28 +254,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66940861875FDA3E95463B5F /* Pods_VTCNews.framework in Frameworks */,
+				2D5845942A8B2AA5F6ABC486 /* Pods_VTCNews.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		20386BF31394C0EEC628DEE8 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				9997173BBFA10E7DE6ACA141 /* Pods_VTCNews.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		26B39752BB532870FB328FF9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				46CED5EF4DF30F3860FFDCE2 /* Pods-VTVNew.debug.xcconfig */,
-				F805D9F4CC8E6ADDFBBC52E1 /* Pods-VTVNew.release.xcconfig */,
-				8DA73E60690FCE137704F1ED /* Pods-VTCNews.debug.xcconfig */,
-				14880ACBC01AC88D9F6A2696 /* Pods-VTCNews.release.xcconfig */,
+				39631B93F5AE2FA3F2144C7F /* Pods-VTCNews.debug.xcconfig */,
+				4C832A31801C531F77D5EAE5 /* Pods-VTCNews.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -372,7 +360,7 @@
 				4FA504EE25BE724500AF4C41 /* VTCNews */,
 				4FA504ED25BE724500AF4C41 /* Products */,
 				26B39752BB532870FB328FF9 /* Pods */,
-				20386BF31394C0EEC628DEE8 /* Frameworks */,
+				7FE82B18E50128D43A25368C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -592,6 +580,14 @@
 			path = Chitiettin;
 			sourceTree = "<group>";
 		};
+		7FE82B18E50128D43A25368C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB8639C0B1B46A7EC1FBB553 /* Pods_VTCNews.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -599,11 +595,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4FA5050325BE724700AF4C41 /* Build configuration list for PBXNativeTarget "VTCNews" */;
 			buildPhases = (
-				C43F406FDD57EBB8EFCA0046 /* [CP] Check Pods Manifest.lock */,
+				64BED745AFA52106D164C289 /* [CP] Check Pods Manifest.lock */,
 				4FA504E825BE724500AF4C41 /* Sources */,
 				4FA504E925BE724500AF4C41 /* Frameworks */,
 				4FA504EA25BE724500AF4C41 /* Resources */,
-				C8B08F027A8405C31A4694C5 /* [CP] Embed Pods Frameworks */,
+				0AFFB7636859F7E8E5820803 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -697,7 +693,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C43F406FDD57EBB8EFCA0046 /* [CP] Check Pods Manifest.lock */ = {
+		0AFFB7636859F7E8E5820803 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VTCNews/Pods-VTCNews-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VTCNews/Pods-VTCNews-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VTCNews/Pods-VTCNews-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		64BED745AFA52106D164C289 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -717,23 +730,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C8B08F027A8405C31A4694C5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VTCNews/Pods-VTCNews-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VTCNews/Pods-VTCNews-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VTCNews/Pods-VTCNews-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -961,7 +957,7 @@
 		};
 		4FA5050425BE724700AF4C41 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8DA73E60690FCE137704F1ED /* Pods-VTCNews.debug.xcconfig */;
+			baseConfigurationReference = 39631B93F5AE2FA3F2144C7F /* Pods-VTCNews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -985,7 +981,7 @@
 		};
 		4FA5050525BE724700AF4C41 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 14880ACBC01AC88D9F6A2696 /* Pods-VTCNews.release.xcconfig */;
+			baseConfigurationReference = 4C832A31801C531F77D5EAE5 /* Pods-VTCNews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
