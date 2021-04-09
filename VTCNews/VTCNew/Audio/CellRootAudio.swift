@@ -131,10 +131,10 @@ extension CellRootAudio: UICollectionViewDelegate, UICollectionViewDataSource, U
         cell.indexRow = indexPath
         
         if indexPath.section == 0 {
-            cell.lblTitle.font = cell.lblTitle.font.withSize(30)
+            cell.lblTitle.font = cell.lblTitle.font.withSize(20)
             cell.heightImg.constant = collectionView.bounds.width-scale*40
         } else {
-            cell.lblTitle.font = cell.lblTitle.font.withSize(20)
+            cell.lblTitle.font = cell.lblTitle.font.withSize(10)
             cell.heightImg.constant = (clv.bounds.width - 25)/2-scale*40
         }
         

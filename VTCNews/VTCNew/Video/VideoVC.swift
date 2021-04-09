@@ -107,7 +107,7 @@ class VideoVC: UIViewController {
     
     @objc func tapSearch(_ sender: UITapGestureRecognizer){
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WebviewSearch") as! WebviewSearch
-        self.present(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func tapSideMenu(_ sender: UITapGestureRecognizer){
@@ -154,7 +154,6 @@ extension VideoVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         return CGSize(width: UIScreen.main.bounds.width, height: scaleW * 380)
     }
     

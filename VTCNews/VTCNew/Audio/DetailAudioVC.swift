@@ -53,7 +53,9 @@ class DetailAudioVC: UIViewController {
         super.viewDidLoad()
         getData(id: id)
         navigationTop()
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         
         tbl.register(UINib(nibName: "CellDetailAudio", bundle: nil), forCellReuseIdentifier: "CellDetailAudio")
         tbl.register(UINib(nibName: "CellMoreAudio", bundle: nil), forCellReuseIdentifier: "CellMoreAudio")
@@ -110,6 +112,12 @@ class DetailAudioVC: UIViewController {
     }
 }
 
+extension DetailAudioVC:UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+}
+
 extension DetailAudioVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let section = SectionDetailAudio(rawValue: section) else {
@@ -160,8 +168,12 @@ extension DetailAudioVC: UITableViewDelegate, UITableViewDataSource {
             } else {
                 a = Int(countMoreAudio/2)
             }
+            
+            return CGFloat(a) * ((UIScreen.main.bounds.width - scale*20)/2 + scale * 60) + CGFloat(a) * scale * 15
+            
+//            (collectionView.bounds.width - scale*20)/2 + scale * 60
 //            return CGFloat(a) * scale * 210 + CGFloat(countMoreAudio/2)*scale*10 + scale*270
-            return scale * 600
+//            return scale * 600
         }
     }
     

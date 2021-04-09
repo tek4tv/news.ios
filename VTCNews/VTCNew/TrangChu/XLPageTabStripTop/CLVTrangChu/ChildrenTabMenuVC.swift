@@ -57,13 +57,19 @@ class ChildrenTabMenuVC: ButtonBarPagerTabStripViewController {
         menuBarItemLeft.customView?.heightAnchor.constraint(equalToConstant: 24).isActive = true
         self.navigationItem.leftBarButtonItem = menuBarItemLeft
         
+        menuBtnRight.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapSearch(_:))))
+
+        
     }
     
     @objc func back(){
         self.navigationController?.popViewController(animated: true)
     }
     
-    
+    @objc func tapSearch(_ sender: UITapGestureRecognizer){
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WebviewSearch") as! WebviewSearch
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {

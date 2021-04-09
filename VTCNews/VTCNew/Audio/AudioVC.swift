@@ -150,7 +150,7 @@ class AudioVC: UIViewController {
     
     @objc func tapSearch(_ sender: UITapGestureRecognizer){
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WebviewSearch") as! WebviewSearch
-        self.present(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func getSachNoi(){
@@ -228,9 +228,9 @@ extension AudioVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellChildrenAudio", for: indexPath) as! CellChildrenAudio
         
         if indexPath.section == 0 {
-            cell.lblTitle.font = cell.lblTitle.font.withSize(30)
+            cell.lblTitle.font = cell.lblTitle.font.withSize(25)
         } else {
-            cell.lblTitle.font = cell.lblTitle.font.withSize(20)
+            cell.lblTitle.font = cell.lblTitle.font.withSize(17)
         }
         
         if collectionView.tag == 0 {

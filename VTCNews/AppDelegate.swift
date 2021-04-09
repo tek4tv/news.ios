@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        NetworkMonitor.shared.startMonitoring()
         FirebaseApp.configure() // gọi hàm để cấu hình 1 app Firebase mặc định
         Messaging.messaging().delegate = self //Nhận các message từ FirebaseMessaging
         configApplePush(application) // đăng ký nhận push.

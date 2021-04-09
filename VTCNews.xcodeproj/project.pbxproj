@@ -25,6 +25,7 @@
 		4F2261E626085ACB00CBAA5A /* nativeAdmobCLVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2261DE26085ACB00CBAA5A /* nativeAdmobCLVCell.swift */; };
 		4F2261E726085ACB00CBAA5A /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2261E026085ACB00CBAA5A /* Constant.swift */; };
 		4F2261E826085ACB00CBAA5A /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2261E126085ACB00CBAA5A /* Config.swift */; };
+		4F326911261D9B9B007FFC20 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F326910261D9B9B007FFC20 /* NetworkMonitor.swift */; };
 		4F3ADFA725DCB2C8006FF2BB /* ModelChanelByPodcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3ADFA625DCB2C8006FF2BB /* ModelChanelByPodcast.swift */; };
 		4F3ADFAA25DCD35A006FF2BB /* PageAudioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3ADFA925DCD35A006FF2BB /* PageAudioVC.swift */; };
 		4F3ADFAD25DCD7A7006FF2BB /* ContentPageVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3ADFAC25DCD7A7006FF2BB /* ContentPageVideo.swift */; };
@@ -44,6 +45,8 @@
 		4F45C8D925C9316700B46312 /* CellContentComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F45C8D725C9316700B46312 /* CellContentComment.swift */; };
 		4F45C8DA25C9316700B46312 /* CellContentComment.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F45C8D825C9316700B46312 /* CellContentComment.xib */; };
 		4F5856B625F22F3A008DD29E /* XemThemCmtVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5856B525F22F3A008DD29E /* XemThemCmtVC.swift */; };
+		4F6C935B262042CA001034E1 /* CellSideMenuChildren.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6C9359262042CA001034E1 /* CellSideMenuChildren.swift */; };
+		4F6C935C262042CA001034E1 /* CellSideMenuChildren.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F6C935A262042CA001034E1 /* CellSideMenuChildren.xib */; };
 		4F80637C25BFCC0700D662F4 /* ModelArticleHot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80637B25BFCC0700D662F4 /* ModelArticleHot.swift */; };
 		4F80637F25BFD0F300D662F4 /* ModelChanelHot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80637E25BFD0F300D662F4 /* ModelChanelHot.swift */; };
 		4F80638325BFD40D00D662F4 /* CellChanelHot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80638125BFD40D00D662F4 /* CellChanelHot.swift */; };
@@ -145,6 +148,7 @@
 		4F2261DE26085ACB00CBAA5A /* nativeAdmobCLVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nativeAdmobCLVCell.swift; sourceTree = "<group>"; };
 		4F2261E026085ACB00CBAA5A /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		4F2261E126085ACB00CBAA5A /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		4F326910261D9B9B007FFC20 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		4F3ADFA625DCB2C8006FF2BB /* ModelChanelByPodcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelChanelByPodcast.swift; sourceTree = "<group>"; };
 		4F3ADFA925DCD35A006FF2BB /* PageAudioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageAudioVC.swift; sourceTree = "<group>"; };
 		4F3ADFAC25DCD7A7006FF2BB /* ContentPageVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPageVideo.swift; sourceTree = "<group>"; };
@@ -164,6 +168,8 @@
 		4F45C8D725C9316700B46312 /* CellContentComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellContentComment.swift; sourceTree = "<group>"; };
 		4F45C8D825C9316700B46312 /* CellContentComment.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellContentComment.xib; sourceTree = "<group>"; };
 		4F5856B525F22F3A008DD29E /* XemThemCmtVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XemThemCmtVC.swift; sourceTree = "<group>"; };
+		4F6C9359262042CA001034E1 /* CellSideMenuChildren.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellSideMenuChildren.swift; sourceTree = "<group>"; };
+		4F6C935A262042CA001034E1 /* CellSideMenuChildren.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellSideMenuChildren.xib; sourceTree = "<group>"; };
 		4F80637B25BFCC0700D662F4 /* ModelArticleHot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelArticleHot.swift; sourceTree = "<group>"; };
 		4F80637E25BFD0F300D662F4 /* ModelChanelHot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelChanelHot.swift; sourceTree = "<group>"; };
 		4F80638125BFD40D00D662F4 /* CellChanelHot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellChanelHot.swift; sourceTree = "<group>"; };
@@ -298,6 +304,7 @@
 				4F80638C25BFF48A00D662F4 /* Extension.swift */,
 				4F0A884E25C250B400C52E0F /* LazyImageView.swift */,
 				4F109BE825CA8A28004B900F /* ConstrainView.swift */,
+				4F326910261D9B9B007FFC20 /* NetworkMonitor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -549,6 +556,8 @@
 				4FD1739025E4EF360031602E /* CellLogoSideMenu.xib */,
 				4FD1739425E4F03B0031602E /* CellBotSideMenu.swift */,
 				4FD1739525E4F03B0031602E /* CellBotSideMenu.xib */,
+				4F6C9359262042CA001034E1 /* CellSideMenuChildren.swift */,
+				4F6C935A262042CA001034E1 /* CellSideMenuChildren.xib */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";
@@ -655,6 +664,7 @@
 				4F0A887625C3CD1900C52E0F /* CellMenuText.xib in Resources */,
 				4F8063E225C06FC900D662F4 /* helveticaneueultralightitalic.ttf in Resources */,
 				4F80639425C00C0200D662F4 /* ClvChanelHot.xib in Resources */,
+				4F6C935C262042CA001034E1 /* CellSideMenuChildren.xib in Resources */,
 				4F8063DE25C06FC900D662F4 /* helveticaneuebold.ttf in Resources */,
 				4F8FE6EF25EC8584009075CC /* CellHeaderMoreVideo.xib in Resources */,
 				4FF81A4725E35F2700E34AA6 /* CellRootVideoHome.xib in Resources */,
@@ -747,6 +757,7 @@
 				4F3ADFD425DF6B97006FF2BB /* AudioPlayer.swift in Sources */,
 				4FF81A5825E36F4A00E34AA6 /* PlayerView.swift in Sources */,
 				4FA5F63425EF6E50002E9D5A /* ReadDetailVC.swift in Sources */,
+				4F6C935B262042CA001034E1 /* CellSideMenuChildren.swift in Sources */,
 				4F0A887525C3CD1900C52E0F /* CellMenuText.swift in Sources */,
 				4F8063A525C05C4100D662F4 /* ModelVideoHome.swift in Sources */,
 				4FD1738C25E4DC540031602E /* CellSideMenu.swift in Sources */,
@@ -812,6 +823,7 @@
 				4F2261E826085ACB00CBAA5A /* Config.swift in Sources */,
 				4FF81A5525E369D400E34AA6 /* ModelVideoDetail.swift in Sources */,
 				4F8063C125C0623C00D662F4 /* CellContenVideoHome.swift in Sources */,
+				4F326911261D9B9B007FFC20 /* NetworkMonitor.swift in Sources */,
 				4F0A884F25C250B400C52E0F /* LazyImageView.swift in Sources */,
 				4F0A885F25C2691500C52E0F /* CellChildrenAudio.swift in Sources */,
 			);
@@ -964,13 +976,15 @@
 				CODE_SIGN_ENTITLEMENTS = VTCNews/VTCNews.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = WSP6ZUF48P;
 				INFOPLIST_FILE = VTCNews/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = tek4tv.VTCNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -988,13 +1002,15 @@
 				CODE_SIGN_ENTITLEMENTS = VTCNews/VTCNews.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = WSP6ZUF48P;
 				INFOPLIST_FILE = VTCNews/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = tek4tv.VTCNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

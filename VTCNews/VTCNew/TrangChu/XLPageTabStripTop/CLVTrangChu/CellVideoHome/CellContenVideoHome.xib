@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,9 +30,27 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gA-ys-Jce">
-                                <rect key="frame" x="0.0" y="117.5" width="244" height="80.5"/>
+                                <rect key="frame" x="0.0" y="117.5" width="244" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="myAutoFontSize" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="8 thang trc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmU-eW-eRW">
+                                <rect key="frame" x="0.0" y="142" width="75.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.75686274509999996" green="0.75686274509999996" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="myAutoFontSize" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGh-pH-xbE">
+                                <rect key="frame" x="79.5" y="142" width="37.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.63921568630000003" green="0.086274509799999996" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="myAutoFontSize" value="YES"/>
@@ -45,11 +63,10 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="5gA-ys-Jce" firstAttribute="leading" secondItem="vCQ-T5-7W5" secondAttribute="leading" id="CXw-6P-Mvg">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
+                            <constraint firstItem="FGh-pH-xbE" firstAttribute="leading" secondItem="mmU-eW-eRW" secondAttribute="trailing" constant="4" id="AUN-yM-9N0"/>
+                            <constraint firstAttribute="trailing" secondItem="5gA-ys-Jce" secondAttribute="trailing" constant="4" id="BwE-5i-lq3"/>
+                            <constraint firstItem="mmU-eW-eRW" firstAttribute="top" secondItem="5gA-ys-Jce" secondAttribute="bottom" constant="4" id="Dwu-2X-ryv"/>
+                            <constraint firstItem="mmU-eW-eRW" firstAttribute="leading" secondItem="vCQ-T5-7W5" secondAttribute="leading" id="Hkd-5x-Ftw"/>
                             <constraint firstItem="4LE-sm-KzZ" firstAttribute="leading" secondItem="vCQ-T5-7W5" secondAttribute="leading" id="JPK-iE-yW1">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
@@ -65,22 +82,9 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstAttribute="bottom" secondItem="5gA-ys-Jce" secondAttribute="bottom" constant="4" id="gKr-p4-MUQ">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
-                            <constraint firstAttribute="trailing" secondItem="5gA-ys-Jce" secondAttribute="trailing" constant="4" id="jJN-Yx-cBz">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
+                            <constraint firstItem="5gA-ys-Jce" firstAttribute="top" secondItem="4LE-sm-KzZ" secondAttribute="bottom" constant="4" id="f7M-l4-cPC"/>
+                            <constraint firstItem="5gA-ys-Jce" firstAttribute="leading" secondItem="vCQ-T5-7W5" secondAttribute="leading" id="g2i-Wv-bxf"/>
                             <constraint firstItem="2Oz-1j-ZMh" firstAttribute="height" secondItem="4LE-sm-KzZ" secondAttribute="height" multiplier="0.3" id="sdg-J2-LSY">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
-                            <constraint firstItem="5gA-ys-Jce" firstAttribute="top" secondItem="4LE-sm-KzZ" secondAttribute="bottom" constant="4" id="vPB-cq-bYV">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -95,6 +99,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
+                            <constraint firstItem="FGh-pH-xbE" firstAttribute="top" secondItem="mmU-eW-eRW" secondAttribute="top" id="yTc-jB-Oyh"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -125,6 +130,8 @@
             <size key="customSize" width="248" height="202"/>
             <connections>
                 <outlet property="img" destination="4LE-sm-KzZ" id="B7X-BP-itR"/>
+                <outlet property="lblCategory" destination="FGh-pH-xbE" id="8pB-0K-9sK"/>
+                <outlet property="lblPublished" destination="mmU-eW-eRW" id="uGp-RT-jZa"/>
                 <outlet property="lblTitle" destination="5gA-ys-Jce" id="xjN-1g-N4e"/>
             </connections>
             <point key="canvasLocation" x="123.18840579710145" y="127.90178571428571"/>

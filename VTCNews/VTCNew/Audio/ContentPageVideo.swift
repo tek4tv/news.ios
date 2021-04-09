@@ -117,9 +117,9 @@ extension ContentPageVideo: UICollectionViewDelegate, UICollectionViewDataSource
         }
         
         if indexPath.section == 0 {
-            cell.lblTitle.font = cell.lblTitle.font.withSize(30)
+            cell.lblTitle.font = cell.lblTitle.font.withSize(25)
         } else {
-            cell.lblTitle.font = cell.lblTitle.font.withSize(20)
+            cell.lblTitle.font = cell.lblTitle.font.withSize(17)
         }
         return cell
     }

@@ -20,7 +20,7 @@ class ChannelHotVC: UIViewController {
         drawNavigation()
         registerCell()
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: scale * 135)
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: scale * 145)
         clv.collectionViewLayout = layout
         
         clv.delegate = self
@@ -111,9 +111,7 @@ extension ChannelHotVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
                 } else {
                     self.navigationController?.view.makeToast("Video bị lỗi")
                 }
-            }
-            
-          
+            }          
         } else {
             let vc = storyboard?.instantiateViewController(withIdentifier: "ReadDetailVC") as! ReadDetailVC
             vc.id = listData[indexPath.row].id
@@ -143,8 +141,15 @@ extension ChannelHotVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
         
         cell.lblCategory.text = listData.count != 0 ?  listData[indexPath.row].categoryName : ""
         
-        if let url = URL(string: listData[indexPath.row].image){
-            cell.img.loadImage(fromURL: url)
+        if listData.count != 0 {
+            let url = URL(string: listData[indexPath.row].image)
+            cell.img.kf.setImage(with: url){ result in
+                cell.img.stopSkeletonAnimation()
+                cell.img.hideSkeleton(reloadDataAfter: true, transition: .none)
+            }
+        } else {
+            cell.img.isSkeletonable = true
+            cell.img.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .lightGray), animation: nil, transition: .none)
         }
         return cell
     }

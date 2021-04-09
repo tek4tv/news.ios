@@ -9,6 +9,8 @@ import UIKit
 
 class CellContenVideoHome: UICollectionViewCell {
 
+    @IBOutlet weak var lblCategory: UILabel!
+    @IBOutlet weak var lblPublished: UILabel!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var img: UIImageView!
     override func awakeFromNib() {

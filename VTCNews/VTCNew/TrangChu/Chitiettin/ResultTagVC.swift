@@ -59,7 +59,7 @@ class ResultTagVC: UIViewController {
         clv.dataSource = self
         clv.register(UINib(nibName: "CellCLV1", bundle: nil), forCellWithReuseIdentifier: "CellCLV1")
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: scale * 135)
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: scale * 145)
         clv.collectionViewLayout = layout
         
         getData(tag: textTag, page: 1)

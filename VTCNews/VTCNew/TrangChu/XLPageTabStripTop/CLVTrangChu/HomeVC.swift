@@ -103,8 +103,6 @@ class HomeVC: UIViewController {
                     self.navigationController?.view.makeToast("Video bị lỗi")
                 }
             }
-            
-            
         } else {
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ReadDetailVC") as! ReadDetailVC
             self.navigationController?.pushViewController(vc, animated: true)
@@ -275,13 +273,14 @@ class HomeVC: UIViewController {
             }
         }
         heightClvAudio.constant = 3 * scale * 165 + scale*80
-        heightClvVideo.constant = 2 * scale * 210 + scale*110
+        heightClvVideo.constant = 2 * scale * 220 + scale*110
         menuBtnRight.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapSearch(_:))))
         scrollView.delegate = self
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let height = scrollView.frame.size.height
+        if scrollView == self.scrollView {
+            let height = scrollView.frame.size.height
             let contentYoffset = scrollView.contentOffset.y
             let distanceFromBottom = scrollView.contentSize.height - contentYoffset
             if distanceFromBottom < height + scale * 2500 {
@@ -289,11 +288,13 @@ class HomeVC: UIViewController {
                 getTinMoi(page: page)
                 clvSuggestionHome3.reloadData()
             }
+        }
+        
     }
     
     @objc func tapSearch(_ sender: UITapGestureRecognizer){
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WebviewSearch") as! WebviewSearch
-        self.present(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     func getDataArticleHot(){
         APIService.shared.getArticleHot() { (response, error) in
@@ -316,7 +317,7 @@ class HomeVC: UIViewController {
                     if let url = URL(string: self.listArticle[0].image169Large){
                         self.imgHeaderArtilce.kf.setImage(with: url)
                     }
-                    self.heightClvArticleHome.constant = CGFloat(self.listArticle.count-1) * scale * 135
+                    self.heightClvArticleHome.constant = CGFloat(self.listArticle.count-1) * scale * 145
                     self.clvArticleHome.reloadData()
                 }
             }
@@ -354,8 +355,8 @@ class HomeVC: UIViewController {
                         self.clvSuggestionHome3.reloadData()
                     }
                     
-                    self.heightClvSuggestionHome1.constant = CGFloat(self.listSugestionHome0.count) * scale * 135
-                    self.heightClvSuggestionHome2.constant = CGFloat(self.listSugestionHome1.count) * scale * 135
+                    self.heightClvSuggestionHome1.constant = CGFloat(self.listSugestionHome0.count) * scale * 145
+                    self.heightClvSuggestionHome2.constant = CGFloat(self.listSugestionHome1.count) * scale * 145
                 }
             }
         }
@@ -368,7 +369,7 @@ class HomeVC: UIViewController {
                 self.listTinmoi.append(contentsOf: rs)
                 DispatchQueue.main.async {
                     self.clvSuggestionHome3.reloadData()
-                    self.heightClvSuggestionHome3.constant = CGFloat(self.listTinmoi.count) * scale * 135
+                    self.heightClvSuggestionHome3.constant = CGFloat(self.listTinmoi.count) * scale * 145
                 }
             }
         }
@@ -465,6 +466,7 @@ class HomeVC: UIViewController {
 }
 
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView.tag == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellMenuText", for: indexPath) as! CellMenuText
@@ -541,7 +543,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellContenVideoHome", for: indexPath) as! CellContenVideoHome
             if listVideoHome.count != 0 {
                 cell.lblTitle.font = cell.lblTitle.font.withSize(15)
-                
+                cell.lblCategory.text = listVideoHome[indexPath.row].categoryName
                 if listVideoHome.count != 0 {
                     cell.lblTitle.text = listVideoHome[indexPath.row+1].title
                     let url = URL(string: listVideoHome[indexPath.row + 1].image169Large)
@@ -822,35 +824,28 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     
     
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView.tag == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellMenuText", for: indexPath) as! CellMenuText
             return CGSize(width: cell.lbl.frame.width, height: clvTabMenu.frame.height)
         } else if collectionView.tag == 1 {
-            return CGSize(width: UIScreen.main.bounds.width, height: scale * 135)
+            return CGSize(width: UIScreen.main.bounds.width, height: scale * 145)
         } else if collectionView.tag == 2 {
             return CGSize(width: (clvHotArticle.bounds.width - scale*30)/2, height: scale * 220)
         } else if collectionView.tag == 3 {
-            return CGSize(width: UIScreen.main.bounds.width, height: scale * 135)
+            return CGSize(width: UIScreen.main.bounds.width, height: scale * 145)
         } else if collectionView.tag == 4 {
-            return CGSize(width: (clvVideo.bounds.width - scale*35)/2 , height: scale * 210)
+            return CGSize(width: (clvVideo.bounds.width - scale*35)/2 , height: scale * 220)
         } else if collectionView.tag == 5 {
-            return CGSize(width: UIScreen.main.bounds.width, height: scale * 135)
+            return CGSize(width: UIScreen.main.bounds.width, height: scale * 145)
         } else if collectionView.tag == 6 {
             return CGSize(width: UIScreen.main.bounds.width, height: scale * 165)
         } else {
-            return CGSize(width: UIScreen.main.bounds.width, height: scale * 135)
+            return CGSize(width: UIScreen.main.bounds.width, height: scale * 145)
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        if collectionView.tag == 0 {
-            return 10
-        } else {
-            return 0
-        }
-    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if collectionView.tag == 0 {
             return UIEdgeInsets(top: 0, left: scale * 8, bottom: 0, right: scale * 8)
@@ -859,7 +854,13 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         }
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        if collectionView.tag == 0 {
+            return scale * 10
+        } else {
+            return 0
+        }
+    }
     
 }
 

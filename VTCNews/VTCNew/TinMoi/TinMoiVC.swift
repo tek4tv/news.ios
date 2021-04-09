@@ -11,7 +11,9 @@ import Toast_Swift
 import FBAudienceNetwork
 import GoogleMobileAds
 
+
 class TinMoiVC: UIViewController {
+    
     //Admod
     var fbNativeAds: FBNativeAd?
     var admobNativeAds: GADUnifiedNativeAd?
@@ -121,10 +123,11 @@ class TinMoiVC: UIViewController {
         menuBtnLeft.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapSideMenu(_:))))
         menuBtnRight.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapSearch(_:))))
     }
+  
     
     @objc func tapSearch(_ sender: UITapGestureRecognizer){
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WebviewSearch") as! WebviewSearch
-        self.present(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     @objc func tapSideMenu(_ sender: UITapGestureRecognizer){
         let menu = storyboard?.instantiateViewController(withIdentifier: "leftMenu") as! SideMenuNavigationController
@@ -138,12 +141,15 @@ class TinMoiVC: UIViewController {
 }
 
 extension TinMoiVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        0
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         listData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width, height: scale * 135)
+        return CGSize(width: UIScreen.main.bounds.width, height: scale * 145)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -228,4 +234,5 @@ extension TinMoiVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         }
         return CGSize(width: DEVICE_WIDTH, height: 150 * scale)
     }
+    
 }

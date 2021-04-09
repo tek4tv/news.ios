@@ -55,8 +55,8 @@ class ReadDetailVC: UIViewController, WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.heightWebview.constant = webView.scrollView.contentSize.height
-            self.heightClvThemThongTin.constant = scale * 135 * CGFloat(self.listArticleRelated.count)
-            self.heightClvCungChuyenMuc.constant = scale * 135 * CGFloat(self.listDanhSachTin.count)
+            self.heightClvThemThongTin.constant = scale * 145 * CGFloat(self.listArticleRelated.count)
+            self.heightClvCungChuyenMuc.constant = scale * 145 * CGFloat(self.listDanhSachTin.count)
         }
     }
     @IBOutlet weak var heightWebview: NSLayoutConstraint!
@@ -116,6 +116,10 @@ class ReadDetailVC: UIViewController, WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
 
         iMes = false
         btnLike.layer.masksToBounds = true
@@ -179,8 +183,9 @@ class ReadDetailVC: UIViewController, WKNavigationDelegate {
         btnSendComent.layer.masksToBounds = true
         btnSendComent.layer.cornerRadius = scale * 5
         
-        
-        getChitiettin(id: id)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.getChitiettin(id: self.id)
+        }
         getComment(id: id, page: 1)
         
     }
@@ -198,6 +203,7 @@ class ReadDetailVC: UIViewController, WKNavigationDelegate {
             }
         }
     }
+   
     
     func getChitiettin(id:Int){
         APIService.shared.getChiTietTin(id: id) { (response, img, listTag, listArticleRelated, error) in
@@ -220,6 +226,7 @@ class ReadDetailVC: UIViewController, WKNavigationDelegate {
                     print("HeightTagView: \(self.tagListView.intrinsicContentSize)")
                     for i in self.listTag{
                         let tagView = self.tagListView.addTag("\(i.tagName),")
+                        
                         tagView.onTap = { tagView in
                             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ResultTagVC") as! ResultTagVC
                             vc.textTag = i.tagTitleWithoutUnicode
@@ -260,8 +267,8 @@ class ReadDetailVC: UIViewController, WKNavigationDelegate {
                           line-height: 50px !important;
                         }
                         .expEdit{
-                          font-size: 18px !important;
-                          line-height: 20px !important;
+                          font-size: 35px !important;
+                          line-height: 40px !important;
                         }
                         
                         .vjs-big-play-button {
@@ -402,28 +409,76 @@ class ReadDetailVC: UIViewController, WKNavigationDelegate {
     
     @objc func tapSearch(_ sender: UITapGestureRecognizer){
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WebviewSearch") as! WebviewSearch
-        self.present(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
-    
+    var dataVideo = [ModelVideoDetail]()
+
+}
+
+extension ReadDetailVC:UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
 }
 
 extension ReadDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ReadDetailVC") as! ReadDetailVC
-        var id = 0
+        
         if collectionView.tag == 0 {
-            id = listArticleRelated[indexPath.row].id
+            if listArticleRelated[indexPath.row].isVideoArticle == 1 {
+                APIService.shared.getVideoDetail(id: self.listArticleRelated[indexPath.row].id){
+                    (response, error) in
+                    if let rs = response {
+                        self.dataVideo = rs
+                    }
+                    
+                    if self.dataVideo.count != 0 {
+                        let schedule = self.listArticleRelated[indexPath.row].publishedDate
+                        let timePass = publishedDate(schedule: schedule)
+                        NotificationCenter.default.post(name: Notification.Name("openVideo"), object: nil, userInfo: ["category":self.listArticleRelated[indexPath.row].categoryName, "id":self.listArticleRelated[indexPath.row].id,"name":self.listArticleRelated[indexPath.row].title,"published":timePass,"des":self.listArticleRelated[indexPath.row].description,"cateID":self.listArticleRelated[indexPath.row].categoryID])
+                    } else {
+                        self.navigationController?.view.makeToast("Video bị lỗi")
+                    }
+                }
+                
+              
+            } else {
+                let vc = storyboard?.instantiateViewController(withIdentifier: "ReadDetailVC") as! ReadDetailVC
+                vc.id = listArticleRelated[indexPath.row].id
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         } else {
-            id = listDanhSachTin[indexPath.row].id
+            if listDanhSachTin[indexPath.row].isVideoArticle == 1 {
+                APIService.shared.getVideoDetail(id: self.listDanhSachTin[indexPath.row].id){
+                    (response, error) in
+                    if let rs = response {
+                        self.dataVideo = rs
+                    }
+                    
+                    if self.dataVideo.count != 0 {
+                        let schedule = self.listDanhSachTin[indexPath.row].publishedDate
+                        let timePass = publishedDate(schedule: schedule)
+                        NotificationCenter.default.post(name: Notification.Name("openVideo"), object: nil, userInfo: ["category":self.listDanhSachTin[indexPath.row].categoryName, "id":self.listDanhSachTin[indexPath.row].id,"name":self.listDanhSachTin[indexPath.row].title,"published":timePass,"des":self.listDanhSachTin[indexPath.row].description,"cateID":self.listDanhSachTin[indexPath.row].categoryID])
+                    } else {
+                        self.navigationController?.view.makeToast("Video bị lỗi")
+                    }
+                }
+                
+              
+            } else {
+                let vc = storyboard?.instantiateViewController(withIdentifier: "ReadDetailVC") as! ReadDetailVC
+                vc.id = listDanhSachTin[indexPath.row].id
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
-        vc.id = id
-        self.navigationController?.pushViewController(vc, animated: true)
+        
+        
         
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width, height: scale*135)
+        return CGSize(width: UIScreen.main.bounds.width, height: scale*145)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -438,6 +493,9 @@ extension ReadDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
         if collectionView.tag == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellCLV1", for: indexPath) as! CellCLV1
             
+            if listArticleRelated[indexPath.row].isVideoArticle == 1 {
+                cell.icVideo.isHidden = false
+            }
             if listArticleRelated.count != 0 {
                 let schedule = listArticleRelated[indexPath.row].publishedDate
                 let timePass = publishedDate(schedule: schedule)
@@ -469,6 +527,10 @@ extension ReadDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
                 cell.lblPublished.text = timePass
             } else {
                 cell.lblPublished.text = ""
+            }
+            
+            if listDanhSachTin[indexPath.row].isVideoArticle == 1 {
+                cell.icVideo.isHidden = false
             }
             
             cell.lblCategory.text = listDanhSachTin.count != 0 ? listDanhSachTin[indexPath.row].categoryName : ""
@@ -519,7 +581,7 @@ extension ReadDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
             if fbNativeAds == nil && admobNativeAds == nil{
                 return CGSize(width: DEVICE_WIDTH, height: 0)
             }
-            return CGSize(width: DEVICE_WIDTH, height: 135 * scale)
+            return CGSize(width: DEVICE_WIDTH, height: 145 * scale)
         } else {
             return CGSize(width: DEVICE_WIDTH, height: 0)
         }

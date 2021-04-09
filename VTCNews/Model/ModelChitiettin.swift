@@ -69,7 +69,8 @@ class ListArticleRelated{
     var categoryName:String = ""
     var publishedDate:String = ""
     var image:String = ""
-    
+    var isVideoArticle = 0
+    var categoryID = 0
     init(json: JSON) {
         self.id = json["Id"].intValue
         self.title = json["Title"].stringValue
@@ -78,5 +79,7 @@ class ListArticleRelated{
         self.categoryName = json["CategoryName"].stringValue
         self.publishedDate = json["PublishedDate"].stringValue
         self.image = json["imagecrop"].stringValue
+        self.isVideoArticle = json["IsVideoArticle"].intValue
+        self.categoryID = json["CategoryId"].intValue
     }
 }

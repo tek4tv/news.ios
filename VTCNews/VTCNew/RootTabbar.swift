@@ -378,9 +378,7 @@ class RootTabbar: UITabBarController {
                   return image
               }
           }
-        
-        
-        
+            
         MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
     }
     
@@ -700,11 +698,9 @@ class RootTabbar: UITabBarController {
             imgAudio.loadImage(fromURL: url)
         }
         
-        
         setupNowPlaying()
         
     }
-    
     
     @objc func visitTabMe(_ sender: Notification){
         self.selectedIndex = 4
@@ -741,7 +737,13 @@ extension RootTabbar: UICollectionViewDelegate, UICollectionViewDataSource, UICo
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
-            return CGSize(width: UIScreen.main.bounds.width, height: 250)
+            let lbldes = UILabel(frame: CGRect.zero)
+            lbldes.text = self.des
+            lbldes.sizeToFit()
+            let lblTitle = UILabel(frame: CGRect.zero)
+            lblTitle.text = self.nameVideo
+            lblTitle.sizeToFit()
+            return CGSize(width: UIScreen.main.bounds.width, height: lbldes.frame.height + scale * 200 + lblTitle.frame.height)
         } else {
             return CGSize(width: (clvMoreVideo.bounds.width - 40)/2 , height: scale * 210)
         }
@@ -767,6 +769,10 @@ extension RootTabbar: UICollectionViewDelegate, UICollectionViewDataSource, UICo
             let cell = clvMoreVideo.dequeueReusableCell(withReuseIdentifier: "CellContenVideoHome", for: indexPath) as! CellContenVideoHome
             cell.lblTitle.text = listVideoMore.count != 0 ? listVideoMore[indexPath.row].title : ""
             cell.lblTitle.textColor = .black
+            cell.lblCategory.text = listVideoMore[indexPath.row].categoryName
+            let schedule = listVideoMore[indexPath.row].publishedDate
+            let timePass = publishedDate(schedule: schedule)
+            cell.lblPublished.text = timePass
             if listVideoMore.count != 0 {
                 let url = URL(string: listVideoMore[indexPath.row].image)
                 cell.img.kf.setImage(with: url){ result in

@@ -67,13 +67,14 @@ extension SideMenu: UITableViewDelegate, UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellBotSideMenu", for: indexPath) as! CellBotSideMenu
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CellSideMenu", for: indexPath) as! CellSideMenu
             if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "CellSideMenu", for: indexPath) as! CellSideMenu
                 cell.lblTitle.text = tableViewData[indexPath.section].title
                 cell.img.image = UIImage(named: tableViewData[indexPath.section].img)
                 cell.imgDown.image = UIImage(named: tableViewData[indexPath.section].imgDown)
                 return cell
             } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "CellSideMenuChildren", for: indexPath) as! CellSideMenuChildren
                 cell.lblTitle.text = tableViewData[indexPath.section].sectionData[indexPath.row - 1]
                 cell.img.image = UIImage(named: "")
                 cell.imgDown.image = UIImage(named: "")
