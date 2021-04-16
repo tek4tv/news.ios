@@ -276,6 +276,21 @@ class HomeVC: UIViewController {
         heightClvVideo.constant = 2 * scale * 220 + scale*110
         menuBtnRight.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapSearch(_:))))
         scrollView.delegate = self
+        
+        let btnLive = UIButton()
+        btnLive.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(btnLive)
+        btnLive.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -(80*scale)).isActive = true
+        btnLive.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16*scale).isActive = true
+        btnLive.widthAnchor.constraint(equalToConstant: scale*64).isActive = true
+        btnLive.heightAnchor.constraint(equalToConstant: scale*64).isActive = true
+        btnLive.setImage(UIImage(named: "icLive"), for: .normal)
+        btnLive.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapBtnLive)))
+        
+    }
+    @objc func tapBtnLive(){
+        let vc = storyboard?.instantiateViewController(withIdentifier: "VOVLiveVC") as! VOVLiveVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -691,6 +706,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView.tag == 0 {
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChildrenTabMenuVC") as! ChildrenTabMenuVC
+            vc.itemParent = listMenuShow[indexPath.row]
             vc.id = listMenuShow[indexPath.row].id
             self.navigationController?.pushViewController(vc, animated: true)
         } else if collectionView.tag == 1 {

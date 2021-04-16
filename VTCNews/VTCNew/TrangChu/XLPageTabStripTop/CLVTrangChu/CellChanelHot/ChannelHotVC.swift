@@ -17,6 +17,9 @@ class ChannelHotVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         drawNavigation()
         registerCell()
         let layout = UICollectionViewFlowLayout()
@@ -153,6 +156,14 @@ extension ChannelHotVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
         }
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        0
+    }
     
-    
+}
+
+extension ChannelHotVC:UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
 }

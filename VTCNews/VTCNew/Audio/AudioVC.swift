@@ -16,7 +16,7 @@ class AudioVC: UIViewController {
     var listPodCast = [ModelPodCast]()
     
     private let refreshControl = UIRefreshControl()
-
+    
     @IBOutlet weak var heightAmNhac: NSLayoutConstraint!
     @IBOutlet weak var heightSachNoi: NSLayoutConstraint!
     @IBOutlet weak var heightPodCast: NSLayoutConstraint!
@@ -138,6 +138,20 @@ class AudioVC: UIViewController {
         heightSachNoi.constant = UIScreen.main.bounds.width + scale * 80 + ((UIScreen.main.bounds.width - 35)/2 + scale * 60)*2 + scale*120
         heightAmNhac.constant = UIScreen.main.bounds.width + scale * 80 + ((UIScreen.main.bounds.width - 35)/2 + scale * 60)*2 + scale*120
         
+        let btnLive = UIButton()
+        btnLive.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(btnLive)
+        btnLive.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -(80*scale)).isActive = true
+        btnLive.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16*scale).isActive = true
+        btnLive.widthAnchor.constraint(equalToConstant: scale*64).isActive = true
+        btnLive.heightAnchor.constraint(equalToConstant: scale*64).isActive = true
+        btnLive.setImage(UIImage(named: "icLive"), for: .normal)
+        btnLive.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapBtnLive)))
+        
+    }
+    @objc func tapBtnLive(){
+        let vc = storyboard?.instantiateViewController(withIdentifier: "VOVLiveVC") as! VOVLiveVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func tapSideMenu(_ sender: UITapGestureRecognizer){
@@ -193,7 +207,7 @@ class AudioVC: UIViewController {
 
 extension AudioVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-
+    
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         2
@@ -321,18 +335,26 @@ extension AudioVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             if indexPath.section == 0 {
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailAudioVC") as! DetailAudioVC
                 vc.id = listPodCast[indexPath.row].id
-                self.navigationController?.pushViewController(vc, animated: true)            } else {
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+            } else {
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailAudioVC") as! DetailAudioVC
                 vc.id = listPodCast[indexPath.row+1].id
-                self.navigationController?.pushViewController(vc, animated: true)            }
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+            }
         } else if collectionView.tag == 1 {
             if indexPath.section == 0 {
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailAudioVC") as! DetailAudioVC
                 vc.id = listSachNoi[indexPath.row].id
-                self.navigationController?.pushViewController(vc, animated: true)            } else {
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+            } else {
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailAudioVC") as! DetailAudioVC
                 vc.id = listSachNoi[indexPath.row].id
-                self.navigationController?.pushViewController(vc, animated: true)            }
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+            }
         } else {
             if indexPath.section == 0 {
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailAudioVC") as! DetailAudioVC
@@ -345,7 +367,7 @@ extension AudioVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             }
         }
     }
-   
+    
     
     func getData(id: Int){
         APIService.shared.getChanelByPodcast(id: id) { (response, error) in
@@ -354,7 +376,7 @@ extension AudioVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             }
         }
     }
-
+    
     
     
 }

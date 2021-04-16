@@ -113,6 +113,9 @@
 		4FD1739625E4F03B0031602E /* CellBotSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD1739425E4F03B0031602E /* CellBotSideMenu.swift */; };
 		4FD1739725E4F03B0031602E /* CellBotSideMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD1739525E4F03B0031602E /* CellBotSideMenu.xib */; };
 		4FD1739A25E5F34C0031602E /* DialogPushComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD1739925E5F34C0031602E /* DialogPushComment.swift */; };
+		4FEB2A08262698C400130A15 /* VOVLiveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEB2A07262698C400130A15 /* VOVLiveVC.swift */; };
+		4FEB2A0C26269A8000130A15 /* CellKenhLive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEB2A0A26269A8000130A15 /* CellKenhLive.swift */; };
+		4FEB2A0D26269A8000130A15 /* CellKenhLive.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FEB2A0B26269A8000130A15 /* CellKenhLive.xib */; };
 		4FF81A4625E35F2700E34AA6 /* CellRootVideoHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF81A4425E35F2700E34AA6 /* CellRootVideoHome.swift */; };
 		4FF81A4725E35F2700E34AA6 /* CellRootVideoHome.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FF81A4525E35F2700E34AA6 /* CellRootVideoHome.xib */; };
 		4FF81A5525E369D400E34AA6 /* ModelVideoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF81A5425E369D400E34AA6 /* ModelVideoDetail.swift */; };
@@ -239,6 +242,9 @@
 		4FD1739425E4F03B0031602E /* CellBotSideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellBotSideMenu.swift; sourceTree = "<group>"; };
 		4FD1739525E4F03B0031602E /* CellBotSideMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellBotSideMenu.xib; sourceTree = "<group>"; };
 		4FD1739925E5F34C0031602E /* DialogPushComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogPushComment.swift; sourceTree = "<group>"; };
+		4FEB2A07262698C400130A15 /* VOVLiveVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VOVLiveVC.swift; sourceTree = "<group>"; };
+		4FEB2A0A26269A8000130A15 /* CellKenhLive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellKenhLive.swift; sourceTree = "<group>"; };
+		4FEB2A0B26269A8000130A15 /* CellKenhLive.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellKenhLive.xib; sourceTree = "<group>"; };
 		4FF81A4425E35F2700E34AA6 /* CellRootVideoHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRootVideoHome.swift; sourceTree = "<group>"; };
 		4FF81A4525E35F2700E34AA6 /* CellRootVideoHome.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellRootVideoHome.xib; sourceTree = "<group>"; };
 		4FF81A5425E369D400E34AA6 /* ModelVideoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelVideoDetail.swift; sourceTree = "<group>"; };
@@ -467,6 +473,9 @@
 				4F3ADFCA25DF5B32006FF2BB /* CellMoreAudio.xib */,
 				4F3ADFCE25DF5C54006FF2BB /* CellPlayAudio.swift */,
 				4F3ADFCF25DF5C54006FF2BB /* CellPlayAudio.xib */,
+				4FEB2A07262698C400130A15 /* VOVLiveVC.swift */,
+				4FEB2A0A26269A8000130A15 /* CellKenhLive.swift */,
+				4FEB2A0B26269A8000130A15 /* CellKenhLive.xib */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -667,6 +676,7 @@
 				4F6C935C262042CA001034E1 /* CellSideMenuChildren.xib in Resources */,
 				4F8063DE25C06FC900D662F4 /* helveticaneuebold.ttf in Resources */,
 				4F8FE6EF25EC8584009075CC /* CellHeaderMoreVideo.xib in Resources */,
+				4FEB2A0D26269A8000130A15 /* CellKenhLive.xib in Resources */,
 				4FF81A4725E35F2700E34AA6 /* CellRootVideoHome.xib in Resources */,
 				4FF90AD025C1023000076478 /* CellAudio.xib in Resources */,
 				4F3ADFCC25DF5B32006FF2BB /* CellMoreAudio.xib in Resources */,
@@ -777,6 +787,7 @@
 				4FF90AE325C11B1400076478 /* ModelPodCast.swift in Sources */,
 				4F80638325BFD40D00D662F4 /* CellChanelHot.swift in Sources */,
 				4F3ADFB525DCE280006FF2BB /* ModelAlbumPaging.swift in Sources */,
+				4FEB2A08262698C400130A15 /* VOVLiveVC.swift in Sources */,
 				4FC5FEE125FA1EB100FFB8EF /* CellAudioHome.swift in Sources */,
 				4FD1738725E4DBB30031602E /* SideMenu.swift in Sources */,
 				4FA5052525BE7A1400AF4C41 /* CaNhanVC.swift in Sources */,
@@ -818,6 +829,7 @@
 				4F80638825BFECB800D662F4 /* CellHeaderArticle.swift in Sources */,
 				4FA5055A25BE9EA500AF4C41 /* CellCLV1.swift in Sources */,
 				4FA5F61E25EE3A76002E9D5A /* ModelResultTag.swift in Sources */,
+				4FEB2A0C26269A8000130A15 /* CellKenhLive.swift in Sources */,
 				4F2261E426085ACB00CBAA5A /* AdmobManager.swift in Sources */,
 				4FF90ADC25C11A2400076478 /* ModelSachNoi.swift in Sources */,
 				4F2261E826085ACB00CBAA5A /* Config.swift in Sources */,

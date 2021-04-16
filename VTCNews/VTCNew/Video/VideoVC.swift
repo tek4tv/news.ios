@@ -89,6 +89,20 @@ class VideoVC: UIViewController {
         //register cell admod
         clv.register(UINib(nibName: "nativeAdmobCLVCell", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "nativeAdmobCLVCell")
         AdmobManager.shared.loadAllNativeAds()
+        let btnLive = UIButton()
+        btnLive.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(btnLive)
+        btnLive.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -(80*scale)).isActive = true
+        btnLive.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16*scale).isActive = true
+        btnLive.widthAnchor.constraint(equalToConstant: scale*64).isActive = true
+        btnLive.heightAnchor.constraint(equalToConstant: scale*64).isActive = true
+        btnLive.setImage(UIImage(named: "icLive"), for: .normal)
+        btnLive.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapBtnLive)))
+        
+    }
+    @objc func tapBtnLive(){
+        let vc = storyboard?.instantiateViewController(withIdentifier: "VOVLiveVC") as! VOVLiveVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc

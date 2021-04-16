@@ -122,8 +122,22 @@ class TinMoiVC: UIViewController {
         
         menuBtnLeft.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapSideMenu(_:))))
         menuBtnRight.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapSearch(_:))))
+        
+        let btnLive = UIButton()
+        btnLive.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(btnLive)
+        btnLive.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -(80*scale)).isActive = true
+        btnLive.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16*scale).isActive = true
+        btnLive.widthAnchor.constraint(equalToConstant: scale*64).isActive = true
+        btnLive.heightAnchor.constraint(equalToConstant: scale*64).isActive = true
+        btnLive.setImage(UIImage(named: "icLive"), for: .normal)
+        btnLive.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapBtnLive)))
+        
     }
-  
+    @objc func tapBtnLive(){
+        let vc = storyboard?.instantiateViewController(withIdentifier: "VOVLiveVC") as! VOVLiveVC
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     @objc func tapSearch(_ sender: UITapGestureRecognizer){
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WebviewSearch") as! WebviewSearch

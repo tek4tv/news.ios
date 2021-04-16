@@ -20,7 +20,7 @@ class Clv1VC: UICollectionViewController {
     var name:String = ""
     var id:Int = 0
     var listDanhSachTin = [ModelDanhSachTin]()
-    var page:Int = 1
+    var page:Int = 0
     private let refreshControl = UIRefreshControl()
 
     var indexSelect = -1
@@ -41,6 +41,9 @@ class Clv1VC: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         
         self.collectionView!.register(UINib(nibName: "CellCLV1", bundle: nil), forCellWithReuseIdentifier: "CellCLV1")
         self.collectionView!.register(UINib(nibName: "nativeAdmobCLVCell", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "nativeAdmobCLVCell")
@@ -50,12 +53,13 @@ class Clv1VC: UICollectionViewController {
         self.collectionView.collectionViewLayout = layout
         // Do any additional setup after loading the view.
         
-        getData(page: 1, id: id)
+        getDataHot(id: id)
         refreshControl.addTarget(self, action: #selector(didPullToRefresh(_:)), for: .valueChanged)
             self.collectionView.alwaysBounceVertical = true
             self.collectionView.refreshControl = refreshControl // iOS 10+
         self.collectionView.delegate = self
     }
+    
     @objc
     private func didPullToRefresh(_ sender: Any) {
         APIService.shared.getDanhSachTinTheoID(page: 1, id: id) { (response, error) in
@@ -78,6 +82,17 @@ class Clv1VC: UICollectionViewController {
             }
         }
     }
+    func getDataHot(id: Int){
+        APIService.shared.getDanhSachTinHotTheoID(id: id) { (response, error) in
+            if let rs = response {
+                self.listDanhSachTin.append(contentsOf: rs)
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+        }
+    }
+    
     
     
     var dataVideo = [ModelVideoDetail]()
@@ -111,18 +126,17 @@ class Clv1VC: UICollectionViewController {
         return listDanhSachTin.count != 0 ? listDanhSachTin.count : 0
     }
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == listDanhSachTin.count - 5 {
+        if indexPath.row == listDanhSachTin.count - 2 {
             page = page + 1
+            getData(page: page, id: id)
         }
+        print(page)
     }
     
     
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellCLV1", for: indexPath) as! CellCLV1
-        if indexPath.row == listDanhSachTin.count - 1  {
-            getData(page: page, id: id)
-        }
         
         if listDanhSachTin[indexPath.row].isVideoArticle == 1 {
             cell.icVideo.isHidden = false
@@ -164,7 +178,9 @@ class Clv1VC: UICollectionViewController {
         return UICollectionReusableView()
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        0
+    }
     
 }
 
@@ -182,5 +198,10 @@ extension Clv1VC: UICollectionViewDelegateFlowLayout{
         }
         return CGSize(width: DEVICE_WIDTH, height: 150 * scale)
 
+    }
+}
+extension Clv1VC:UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }

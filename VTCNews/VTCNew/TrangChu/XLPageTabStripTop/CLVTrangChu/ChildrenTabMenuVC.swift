@@ -9,10 +9,11 @@ import UIKit
 import XLPagerTabStrip
 
 class ChildrenTabMenuVC: ButtonBarPagerTabStripViewController {
-    
+    var itemParent:ModelMenu!
     var listChildrenMenu = [ModelMenu]()
     var id:Int = 0{
         didSet {
+            listChildrenMenu.append(itemParent)
             for i in listMenu {
                 if i.parentID == id && i.isShowMenu == true {
                     listChildrenMenu.append(i)

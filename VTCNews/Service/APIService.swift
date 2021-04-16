@@ -45,6 +45,22 @@ class APIService{
             }
         })
     }
+    func getDanhSachTinHotTheoID(id:Int , closure: @escaping (_ response: [ModelDanhSachTin]?, _ error: Error?) -> Void) {
+        AF.request("https://api.vtcnews.tek4tv.vn/api/home/news/NewsHot/\(id)", method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).responseJSON(completionHandler: { (response) in
+            switch response.result {
+            case .success(let value):
+                var listDSTin = [ModelDanhSachTin]()
+                let json = JSON(value).arrayValue
+                for i in json {
+                    let c = ModelDanhSachTin(json: i)
+                    listDSTin.append(c)
+                }
+                closure(listDSTin, nil)
+            case .failure(let error):
+                print(error)
+            }
+        })
+    }
     func getTinMoi(page:Int, closure: @escaping (_ response: [ModelDanhSachTin]?, _ error: Error?) -> Void) {
         AF.request("https://api.vtcnews.tek4tv.vn/api/home/news/trending/\(page)", method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).responseJSON(completionHandler: { (response) in
             switch response.result {

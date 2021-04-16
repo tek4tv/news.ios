@@ -21,16 +21,16 @@ class RootTabbar: UITabBarController {
             let vc = storyboard?.instantiateViewController(withIdentifier: "ReadDetailVC") as! ReadDetailVC
             vc.id = idNoti
             self.navigationController?.pushViewController(vc, animated: true)
-
+            
         }
     }
     
     let activityIndicatorView: UIActivityIndicatorView = {
-            let aiv = UIActivityIndicatorView(style: .whiteLarge)
-            aiv.translatesAutoresizingMaskIntoConstraints = false
-            aiv.startAnimating()
-            return aiv
-        }()
+        let aiv = UIActivityIndicatorView(style: .whiteLarge)
+        aiv.translatesAutoresizingMaskIntoConstraints = false
+        aiv.startAnimating()
+        return aiv
+    }()
     
     var nameMFCenter = ""
     
@@ -145,20 +145,20 @@ class RootTabbar: UITabBarController {
         }
         
         if keyPath == "timeControlStatus"{
-                    if (viewVideoPlaying.player?.timeControlStatus == .playing) {
-                        activityIndicatorView.stopAnimating()
-                        //player is playing
-                    }
-                    else if (viewVideoPlaying.player?.timeControlStatus == .paused) {
-                        
-                        //player is pause
-                    }
-                    else if (viewVideoPlaying.player?.timeControlStatus == .waitingToPlayAtSpecifiedRate) {
-                        //player is waiting to play
-                        activityIndicatorView.startAnimating()
-                        
-                    }
-                }
+            if (viewVideoPlaying.player?.timeControlStatus == .playing) {
+                activityIndicatorView.stopAnimating()
+                //player is playing
+            }
+            else if (viewVideoPlaying.player?.timeControlStatus == .paused) {
+                
+                //player is pause
+            }
+            else if (viewVideoPlaying.player?.timeControlStatus == .waitingToPlayAtSpecifiedRate) {
+                //player is waiting to play
+                activityIndicatorView.startAnimating()
+                
+            }
+        }
         
     }
     let btnCloseVideo:UIButton = UIButton()
@@ -183,7 +183,7 @@ class RootTabbar: UITabBarController {
                 self.addTimeObserver()
                 
                 NotificationCenter.default.addObserver(self, selector: #selector(self.playerDidFinishPlaying(note:)),
-                                                             name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: self.player.currentItem)
+                                                       name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: self.player.currentItem)
             } else {
                 self.navigationController?.view.makeToast("Video bị lỗi")
             }
@@ -372,13 +372,15 @@ class RootTabbar: UITabBarController {
         // Define Now Playing Info
         var nowPlayingInfo = [String : Any]()
         nowPlayingInfo[MPMediaItemPropertyTitle] = listData[index].name
+        if let data = try? Data(contentsOf: URL(string: listData[index].image182182)!) {
+            if let image = UIImage(data: data) {
+                nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { size in
+                    return image
+                }
+            }
+        }
         
-        if let image = UIImage(named: "logoApp") {
-              nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { size in
-                  return image
-              }
-          }
-            
+        
         MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
     }
     
@@ -399,8 +401,8 @@ class RootTabbar: UITabBarController {
         super.viewDidLoad()
         
         viewVideoPlaying.addSubview(activityIndicatorView)
-                activityIndicatorView.centerXAnchor.constraint(equalTo: viewVideoPlaying.centerXAnchor).isActive = true
-                activityIndicatorView.centerYAnchor.constraint(equalTo: viewVideoPlaying.centerYAnchor).isActive = true
+        activityIndicatorView.centerXAnchor.constraint(equalTo: viewVideoPlaying.centerXAnchor).isActive = true
+        activityIndicatorView.centerYAnchor.constraint(equalTo: viewVideoPlaying.centerYAnchor).isActive = true
         clvMoreVideo.delegate = self
         clvMoreVideo.dataSource = self
         clvMoreVideo.register(UINib(nibName: "CellHeaderMoreVideo", bundle: nil), forCellWithReuseIdentifier: "CellHeaderMoreVideo")
@@ -461,10 +463,16 @@ class RootTabbar: UITabBarController {
         NotificationCenter.default.addObserver(self, selector: #selector(openAudio(_:)), name: NSNotification.Name("playAudio"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(openVideo(_:)), name: NSNotification.Name("openVideo"), object: nil)
         
-        if tabBarController?.selectedIndex == 0 {
-            
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(stopAudio), name: NSNotification.Name("stopAudioRoot"), object: nil)
+        
     }
+    
+    @objc func stopAudio(){
+        audioPlayer.stopAudio()
+        viewAudio.isHidden = true
+    }
+    
+    
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -673,7 +681,7 @@ class RootTabbar: UITabBarController {
             self.viewAudio.frame = CGRect(x: 0, y: (CGFloat(UIScreen.main.bounds.height) - CGFloat(self.tabBar.frame.size.height) - 80 * scale), width: UIScreen.main.bounds.width, height: 80*scale)
         }
         
-        
+        print("abcde \(index)")
         
         listData = notification.userInfo?["listData"] as! [ModelAlbumDetail]
         index = (notification.userInfo?["index"] as? Int)!
@@ -808,7 +816,7 @@ extension RootTabbar: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         clvMoreVideo.setContentOffset(CGPoint.zero, animated: true)
         clvMoreVideo.reloadData()
         
-//        admobFull = "ca-app-pub-5372862349743986/8891274898"
+        //        admobFull = "ca-app-pub-5372862349743986/8891274898"
         
         AdmobManager.shared.loadAdFull(inVC: self)
     }

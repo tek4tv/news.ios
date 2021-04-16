@@ -22,11 +22,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="422" height="147"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgPlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="oGj-gD-FXv" customClass="LazyImageView" customModule="VTCNews" customModuleProvider="target">
-                                <rect key="frame" x="16" y="17" width="154.5" height="114"/>
+                                <rect key="frame" x="16" y="16" width="154.5" height="115"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kwo-Hb-C7E">
-                                <rect key="frame" x="186.5" y="17" width="219.5" height="23"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <rect key="frame" x="186.5" y="16" width="219.5" height="21.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -34,7 +34,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="8 thang trc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28i-hc-EUm">
-                                <rect key="frame" x="186.5" y="48" width="75.5" height="18"/>
+                                <rect key="frame" x="186.5" y="45.5" width="75.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.75686274509803919" green="0.75686274509803919" blue="0.75686274509803919" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -42,15 +42,8 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="myAutoFontSize" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eRj-Ud-9hR">
-                                <rect key="frame" x="16" y="0.0" width="390" height="1"/>
-                                <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="eGo-e3-j1l"/>
-                                </constraints>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQI-r6-QId">
-                                <rect key="frame" x="270" y="48" width="37.5" height="18"/>
+                                <rect key="frame" x="270" y="45.5" width="115" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.63921568627450975" green="0.086274509803921567" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -59,11 +52,18 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icVideo" translatesAutoresizingMaskIntoConstraints="NO" id="YqC-kA-naI">
-                                <rect key="frame" x="393" y="48" width="21" height="21"/>
+                                <rect key="frame" x="393" y="44" width="21" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" secondItem="YqC-kA-naI" secondAttribute="width" id="Zaj-fu-kv1"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eRj-Ud-9hR" userLabel="ViewLine">
+                                <rect key="frame" x="16" y="146" width="390" height="1"/>
+                                <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="ewb-Ao-IC5"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -73,23 +73,16 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="eRj-Ud-9hR" firstAttribute="leading" secondItem="FfT-LX-RqF" secondAttribute="leading" constant="16" id="EUr-Ki-YJr">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
-                            <constraint firstItem="oGj-gD-FXv" firstAttribute="top" secondItem="eRj-Ud-9hR" secondAttribute="bottom" constant="16" id="HfX-oN-ZKI"/>
-                            <constraint firstItem="YqC-kA-naI" firstAttribute="top" secondItem="nQI-r6-QId" secondAttribute="top" id="IKR-Tz-EPV"/>
+                            <constraint firstAttribute="bottom" secondItem="eRj-Ud-9hR" secondAttribute="bottom" id="9RP-2W-2Yi"/>
+                            <constraint firstItem="oGj-gD-FXv" firstAttribute="top" secondItem="FfT-LX-RqF" secondAttribute="top" constant="16" id="HfX-oN-ZKI"/>
+                            <constraint firstAttribute="trailing" secondItem="eRj-Ud-9hR" secondAttribute="trailing" constant="16" id="ID3-lj-TKH"/>
                             <constraint firstAttribute="trailing" secondItem="Kwo-Hb-C7E" secondAttribute="trailing" constant="16" id="K8S-q9-868">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstAttribute="trailing" secondItem="eRj-Ud-9hR" secondAttribute="trailing" constant="16" id="Nn6-nf-CPU">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
+                            <constraint firstItem="eRj-Ud-9hR" firstAttribute="leading" secondItem="FfT-LX-RqF" secondAttribute="leading" constant="16" id="L29-Ng-k16"/>
+                            <constraint firstItem="YqC-kA-naI" firstAttribute="leading" secondItem="nQI-r6-QId" secondAttribute="trailing" constant="8" id="Pkv-km-NON"/>
                             <constraint firstItem="28i-hc-EUm" firstAttribute="leading" secondItem="Kwo-Hb-C7E" secondAttribute="leading" id="W7T-Wt-LUw">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
@@ -100,16 +93,13 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="eRj-Ud-9hR" firstAttribute="top" secondItem="FfT-LX-RqF" secondAttribute="top" id="edg-OL-7EG">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
+                            <constraint firstItem="YqC-kA-naI" firstAttribute="centerY" secondItem="28i-hc-EUm" secondAttribute="centerY" id="dSb-Xz-QBD"/>
                             <constraint firstItem="oGj-gD-FXv" firstAttribute="leading" secondItem="FfT-LX-RqF" secondAttribute="leading" constant="16" id="fBK-tU-w39">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
+                            <constraint firstItem="nQI-r6-QId" firstAttribute="top" secondItem="28i-hc-EUm" secondAttribute="top" id="fPb-r5-CQJ"/>
                             <constraint firstItem="Kwo-Hb-C7E" firstAttribute="top" secondItem="oGj-gD-FXv" secondAttribute="top" id="gec-Qt-xf9">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
@@ -118,7 +108,6 @@
                             <constraint firstItem="28i-hc-EUm" firstAttribute="top" secondItem="Kwo-Hb-C7E" secondAttribute="bottom" constant="8" id="hGd-i7-I0H"/>
                             <constraint firstAttribute="bottom" secondItem="oGj-gD-FXv" secondAttribute="bottom" constant="16" id="isY-Le-DDg"/>
                             <constraint firstItem="nQI-r6-QId" firstAttribute="leading" secondItem="28i-hc-EUm" secondAttribute="trailing" constant="8" id="o2Y-gl-rXW"/>
-                            <constraint firstItem="nQI-r6-QId" firstAttribute="top" secondItem="28i-hc-EUm" secondAttribute="top" id="uvd-iq-8F8"/>
                             <constraint firstItem="oGj-gD-FXv" firstAttribute="width" secondItem="FfT-LX-RqF" secondAttribute="height" multiplier="1.05" id="xd0-h2-NEE"/>
                         </constraints>
                     </view>
@@ -155,7 +144,7 @@
                 <outlet property="lblPublished" destination="28i-hc-EUm" id="mZW-sY-j5h"/>
                 <outlet property="lblTitle" destination="Kwo-Hb-C7E" id="J8o-ae-TIg"/>
             </connections>
-            <point key="canvasLocation" x="391" y="69"/>
+            <point key="canvasLocation" x="389.85507246376812" y="68.638392857142847"/>
         </collectionViewCell>
     </objects>
     <resources>

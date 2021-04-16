@@ -70,7 +70,7 @@ extension CellDetailAudio: UICollectionViewDelegate, UICollectionViewDataSource,
         indexSelect = indexPath
         clvDetail.reloadData()
         
-      
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "stopVOVLive"), object: nil)
         
     }
     func cellForRowAt(indexPath: IndexPath) -> CellPlayAudio? {

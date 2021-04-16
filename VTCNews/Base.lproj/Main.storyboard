@@ -654,6 +654,204 @@
             </objects>
             <point key="canvasLocation" x="1087" y="132"/>
         </scene>
+        <!--LiveVC-->
+        <scene sceneID="1gJ-QE-NcD">
+            <objects>
+                <viewController storyboardIdentifier="VOVLiveVC" id="40M-Es-Bzy" customClass="VOVLiveVC" customModule="VTCNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6zg-cW-dpQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bbs-yV-AsV" customClass="PlayerView" customModule="VTCNews" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="782" width="414" height="80"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hrM-JR-zto">
+                                        <rect key="frame" x="0.0" y="1" width="120" height="79"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYT-BP-dxx" customClass="MarqueeLabel" customModule="MarqueeLabel">
+                                        <rect key="frame" x="128" y="28.5" width="154" height="24"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="myAutoFontSize" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dNf-pf-2aW">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
+                                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="Nmu-AX-MkE"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTz-rA-jXg">
+                                        <rect key="frame" x="378" y="30" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="wTz-rA-jXg" secondAttribute="height" multiplier="1:1" id="AUl-ky-79H"/>
+                                        </constraints>
+                                        <state key="normal" image="right"/>
+                                        <connections>
+                                            <action selector="btnNext:" destination="40M-Es-Bzy" eventType="touchUpInside" id="dVn-r2-W4d"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnL-Cd-0G1">
+                                        <rect key="frame" x="334" y="26" width="28" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="wnL-Cd-0G1" secondAttribute="height" multiplier="1:1" id="fnI-MW-OsU"/>
+                                        </constraints>
+                                        <state key="normal" image="play"/>
+                                        <connections>
+                                            <action selector="btnStatus:" destination="40M-Es-Bzy" eventType="touchUpInside" id="U2r-Fg-auO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6c7-Us-TmW">
+                                        <rect key="frame" x="298" y="30" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="6c7-Us-TmW" secondAttribute="height" multiplier="1:1" id="DQ6-gb-x31"/>
+                                        </constraints>
+                                        <state key="normal" image="left"/>
+                                        <connections>
+                                            <action selector="btnPrevious:" destination="40M-Es-Bzy" eventType="touchUpInside" id="Kb3-Xq-Pl9"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="wTz-rA-jXg" firstAttribute="leading" secondItem="wnL-Cd-0G1" secondAttribute="trailing" constant="16" id="0qe-wh-goq"/>
+                                    <constraint firstAttribute="bottom" secondItem="hrM-JR-zto" secondAttribute="bottom" id="1h8-J8-DcQ">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                    <constraint firstItem="6c7-Us-TmW" firstAttribute="height" secondItem="Bbs-yV-AsV" secondAttribute="height" multiplier="0.25" id="5wR-Rn-eLw"/>
+                                    <constraint firstItem="wnL-Cd-0G1" firstAttribute="leading" secondItem="6c7-Us-TmW" secondAttribute="trailing" constant="16" id="Ai1-ij-l5v"/>
+                                    <constraint firstItem="6c7-Us-TmW" firstAttribute="centerY" secondItem="Bbs-yV-AsV" secondAttribute="centerY" id="CTM-I9-7Gb"/>
+                                    <constraint firstItem="hrM-JR-zto" firstAttribute="leading" secondItem="Bbs-yV-AsV" secondAttribute="leading" id="DI6-Vc-WPV">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="80" id="J11-bP-zh5">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                    <constraint firstItem="vYT-BP-dxx" firstAttribute="leading" secondItem="hrM-JR-zto" secondAttribute="trailing" constant="8" id="NQX-f6-aXh">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                    <constraint firstItem="vYT-BP-dxx" firstAttribute="centerY" secondItem="hrM-JR-zto" secondAttribute="centerY" id="Owi-9t-UMZ">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                    <constraint firstItem="wTz-rA-jXg" firstAttribute="centerY" secondItem="Bbs-yV-AsV" secondAttribute="centerY" id="TYm-Kb-77X"/>
+                                    <constraint firstItem="6c7-Us-TmW" firstAttribute="leading" secondItem="vYT-BP-dxx" secondAttribute="trailing" constant="16" id="V9J-39-rbW"/>
+                                    <constraint firstItem="hrM-JR-zto" firstAttribute="top" secondItem="dNf-pf-2aW" secondAttribute="bottom" id="gPU-CM-tbk">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                    <constraint firstAttribute="trailing" secondItem="wTz-rA-jXg" secondAttribute="trailing" constant="16" id="px7-w7-j0l"/>
+                                    <constraint firstItem="wnL-Cd-0G1" firstAttribute="centerY" secondItem="Bbs-yV-AsV" secondAttribute="centerY" id="qdk-bm-ytq"/>
+                                    <constraint firstItem="dNf-pf-2aW" firstAttribute="leading" secondItem="Bbs-yV-AsV" secondAttribute="leading" id="r3I-El-hyg">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                    <constraint firstItem="wTz-rA-jXg" firstAttribute="height" secondItem="Bbs-yV-AsV" secondAttribute="height" multiplier="0.25" id="vdZ-V6-sEM"/>
+                                    <constraint firstItem="wnL-Cd-0G1" firstAttribute="height" secondItem="Bbs-yV-AsV" secondAttribute="height" multiplier="0.35" id="vv9-b3-rKx"/>
+                                    <constraint firstItem="dNf-pf-2aW" firstAttribute="top" secondItem="Bbs-yV-AsV" secondAttribute="top" id="w0v-gh-nj4">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                    <constraint firstAttribute="trailing" secondItem="dNf-pf-2aW" secondAttribute="trailing" id="wyH-yI-rKT">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                    <constraint firstItem="hrM-JR-zto" firstAttribute="width" secondItem="Bbs-yV-AsV" secondAttribute="height" multiplier="1.5" id="zjm-N2-I4i">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rf0-zE-iTg">
+                                <rect key="frame" x="0.0" y="44" width="414" height="738"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xC4-dw-zq2">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="3di-BG-5Te">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="u4A-fx-jFq">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="uhW-e3-Vck"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Bbs-yV-AsV" firstAttribute="leading" secondItem="uhW-e3-Vck" secondAttribute="leading" id="8Zd-BI-gQM">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="Bbs-yV-AsV" firstAttribute="top" secondItem="rf0-zE-iTg" secondAttribute="bottom" id="HZb-OQ-DSj">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="uhW-e3-Vck" firstAttribute="bottom" secondItem="Bbs-yV-AsV" secondAttribute="bottom" id="NB1-Cg-EdD">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="uhW-e3-Vck" firstAttribute="trailing" secondItem="Bbs-yV-AsV" secondAttribute="trailing" id="QJa-AH-Djn">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="rf0-zE-iTg" firstAttribute="top" secondItem="uhW-e3-Vck" secondAttribute="top" id="cBo-Wd-0y0">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="rf0-zE-iTg" firstAttribute="leading" secondItem="uhW-e3-Vck" secondAttribute="leading" id="fki-gm-nB8">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="uhW-e3-Vck" firstAttribute="trailing" secondItem="rf0-zE-iTg" secondAttribute="trailing" id="wGS-Pz-mcT">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnStatus" destination="wnL-Cd-0G1" id="cZt-rc-FBE"/>
+                        <outlet property="clv" destination="rf0-zE-iTg" id="vrG-Re-mZe"/>
+                        <outlet property="imgKenhLive" destination="hrM-JR-zto" id="LAi-EF-NxD"/>
+                        <outlet property="lblKenhLive" destination="vYT-BP-dxx" id="LFt-5P-5J9"/>
+                        <outlet property="viewBottom" destination="Bbs-yV-AsV" id="KnP-Vn-nPF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9gg-XX-gXf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2008.6956521739132" y="131.91964285714286"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wh6-6l-Rgy">
             <objects>
@@ -2379,14 +2577,14 @@
             <objects>
                 <viewController storyboardIdentifier="ReadDetailVC" id="tgi-U0-Rec" customClass="ReadDetailVC" customModule="VTCNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gY6-Wj-TE1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HZx-3g-4lD">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="1022"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cAc-C9-ikQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="939"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1053.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nA8-Tv-hZP">
                                                 <rect key="frame" x="8" y="16" width="398" height="0.0"/>
@@ -2399,7 +2597,7 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7o-Oa-rCL">
                                                 <rect key="frame" x="8" y="24" width="0.0" height="0.0"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
                                                 <color key="textColor" red="0.75686274509999996" green="0.75686274509999996" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
@@ -2408,7 +2606,7 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTu-Z7-mu5">
                                                 <rect key="frame" x="16" y="24" width="0.0" height="0.0"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                 <color key="textColor" red="0.63921568630000003" green="0.086274509799999996" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
@@ -2475,39 +2673,11 @@
                                                     <action selector="btnShareTwiter:" destination="tgi-U0-Rec" eventType="touchUpInside" id="t1x-FQ-kCY"/>
                                                 </connections>
                                             </button>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNK-ui-rQl" customClass="TagListView" customModule="TagListView">
-                                                <rect key="frame" x="8" y="149" width="398" height="80"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="80" id="9rV-ir-xuZ"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="tagBackgroundColor">
-                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mE8-c7-e84">
-                                                <rect key="frame" x="8" y="245" width="398" height="2"/>
-                                                <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="2" id="o8B-uF-1Gb"/>
-                                                </constraints>
-                                            </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thêm thông tin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gtj-C5-2aQ">
-                                                <rect key="frame" x="16" y="263" width="144.5" height="23"/>
-                                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="myAutoFontSize" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="E5c-7K-cSO">
-                                                <rect key="frame" x="0.0" y="302" width="414" height="5"/>
+                                                <rect key="frame" x="0.0" y="608.5" width="414" height="5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="5" id="ij4-ln-iRN"/>
+                                                    <constraint firstAttribute="height" constant="5" id="4Ga-oi-4Nz"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7Sk-Xn-oX6">
                                                     <size key="itemSize" width="128" height="128"/>
@@ -2526,14 +2696,8 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icCommnetRed" translatesAutoresizingMaskIntoConstraints="NO" id="kHM-Ss-KWw">
-                                                <rect key="frame" x="16" y="323" width="45" height="41"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="kHM-Ss-KWw" secondAttribute="height" multiplier="45:41" id="uK7-48-4oS"/>
-                                                </constraints>
-                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bình luận" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMt-qp-eQW">
-                                                <rect key="frame" x="69" y="330.5" width="97.5" height="26.5"/>
+                                                <rect key="frame" x="77" y="244.5" width="97.5" height="26.5"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -2541,20 +2705,8 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="myAutoFontSize" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8Z-Ni-dNj">
-                                                <rect key="frame" x="174.5" y="343.5" width="0.0" height="0.0"/>
-                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
-                                                <color key="textColor" red="0.63921568630000003" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNF-1r-QQx">
-                                                <rect key="frame" x="192" y="489" width="30" height="30"/>
-                                                <connections>
-                                                    <action selector="btnXemThemBinhLuan:" destination="tgi-U0-Rec" eventType="touchUpInside" id="sea-hF-bSg"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJh-iM-5MP">
-                                                <rect key="frame" x="16" y="601" width="62" height="31"/>
+                                                <rect key="frame" x="16" y="522.5" width="62" height="31"/>
                                                 <color key="backgroundColor" red="0.63921568630000003" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                 <state key="normal" title="Gửi">
@@ -2565,7 +2717,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cùng chuyên mục" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTK-UE-GHX">
-                                                <rect key="frame" x="16" y="664" width="173.5" height="23"/>
+                                                <rect key="frame" x="16" y="629.5" width="173.5" height="23"/>
                                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -2574,10 +2726,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qAy-oz-auh">
-                                                <rect key="frame" x="0.0" y="703" width="414" height="236"/>
+                                                <rect key="frame" x="0.0" y="668.5" width="414" height="385"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="236" id="F1u-9X-5Dp"/>
+                                                    <constraint firstAttribute="height" constant="385" id="1cb-CD-JoI"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Y60-HR-FAj">
                                                     <size key="itemSize" width="128" height="128"/>
@@ -2597,20 +2749,13 @@
                                                 </cells>
                                             </collectionView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VPL-9u-3vd">
-                                                <rect key="frame" x="16" y="535" width="382" height="50"/>
+                                                <rect key="frame" x="16" y="456.5" width="382" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="twx-8h-qfb"/>
+                                                    <constraint firstAttribute="height" constant="50" id="1im-M1-Xmj"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZhK-vi-qdx">
-                                                <rect key="frame" x="0.0" y="373" width="414" height="100"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="Zwg-sU-9v4"/>
-                                                </constraints>
-                                            </tableView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQO-Dx-U3E">
                                                 <rect key="frame" x="398" y="77" width="0.0" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
@@ -2622,46 +2767,69 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wX-8n-8At">
                                                 <rect key="frame" x="8" y="40" width="398" height="0.0"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="myAutoFontSize" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icCommnetRed" translatesAutoresizingMaskIntoConstraints="NO" id="kHM-Ss-KWw">
+                                                <rect key="frame" x="16" y="237" width="45" height="41.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="kHM-Ss-KWw" secondAttribute="height" multiplier="45:41" id="KMa-Jg-KOo"/>
+                                                </constraints>
+                                            </imageView>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZhK-vi-qdx">
+                                                <rect key="frame" x="0.0" y="294.5" width="414" height="100"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="CpQ-ld-n1p"/>
+                                                </constraints>
+                                            </tableView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNF-1r-QQx">
+                                                <rect key="frame" x="192" y="410.5" width="30" height="30"/>
+                                                <connections>
+                                                    <action selector="btnXemThemBinhLuan:" destination="tgi-U0-Rec" eventType="touchUpInside" id="sea-hF-bSg"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thêm thông tin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gtj-C5-2aQ">
+                                                <rect key="frame" x="16" y="569.5" width="144.5" height="23"/>
+                                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="myAutoFontSize" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNK-ui-rQl" customClass="TagListView" customModule="TagListView">
+                                                <rect key="frame" x="8" y="141" width="398" height="80"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="fM0-An-dxg"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="tagBackgroundColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8Z-Ni-dNj">
+                                                <rect key="frame" x="182.5" y="248" width="11.5" height="23"/>
+                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                                <color key="textColor" red="0.63921568630000003" green="0.08235294118" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="qJh-iM-5MP" firstAttribute="width" secondItem="cAc-C9-ikQ" secondAttribute="width" multiplier="0.15" id="0gf-Oa-O1h"/>
                                             <constraint firstItem="hq4-eh-1hs" firstAttribute="width" secondItem="vMd-tN-kWc" secondAttribute="width" id="0wc-I3-YSH">
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
-                                            <constraint firstItem="kHM-Ss-KWw" firstAttribute="top" secondItem="E5c-7K-cSO" secondAttribute="bottom" constant="16" id="1Cl-XL-IXb">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="qAy-oz-auh" firstAttribute="leading" secondItem="cAc-C9-ikQ" secondAttribute="leading" id="1pr-Dn-Ovf">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="qJh-iM-5MP" firstAttribute="top" secondItem="VPL-9u-3vd" secondAttribute="bottom" constant="16" id="3E9-52-Pye">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
+                                            <constraint firstItem="SNK-ui-rQl" firstAttribute="leading" secondItem="cAc-C9-ikQ" secondAttribute="leading" constant="8" id="3bu-zD-m4S"/>
                                             <constraint firstItem="u7o-Oa-rCL" firstAttribute="leading" secondItem="cAc-C9-ikQ" secondAttribute="leading" constant="8" id="3iW-tP-nOH">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstAttribute="trailing" secondItem="ZhK-vi-qdx" secondAttribute="trailing" id="5Jd-vL-Fai">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="kHM-Ss-KWw" firstAttribute="width" secondItem="cAc-C9-ikQ" secondAttribute="width" multiplier="0.108696" id="6AZ-bw-X1A">
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
@@ -2671,72 +2839,34 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
-                                            <constraint firstAttribute="trailing" secondItem="mE8-c7-e84" secondAttribute="trailing" constant="8" id="6ih-ww-g4E">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
+                                            <constraint firstItem="wNF-1r-QQx" firstAttribute="centerX" secondItem="ZhK-vi-qdx" secondAttribute="centerX" id="6x4-b9-3Lm"/>
                                             <constraint firstItem="6wX-8n-8At" firstAttribute="leading" secondItem="cAc-C9-ikQ" secondAttribute="leading" constant="8" id="8sg-cV-U4H">
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
+                                            <constraint firstItem="ZhK-vi-qdx" firstAttribute="leading" secondItem="cAc-C9-ikQ" secondAttribute="leading" id="9mD-ok-lYc"/>
                                             <constraint firstItem="vMd-tN-kWc" firstAttribute="leading" secondItem="aYh-Ie-FQK" secondAttribute="trailing" constant="8" id="9wH-ay-Krc">
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
-                                            <constraint firstItem="VPL-9u-3vd" firstAttribute="leading" secondItem="cAc-C9-ikQ" secondAttribute="leading" constant="16" id="AbD-tP-aH4">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="zMt-qp-eQW" firstAttribute="centerY" secondItem="kHM-Ss-KWw" secondAttribute="centerY" id="BI1-7p-NSO">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
+                                            <constraint firstItem="gtj-C5-2aQ" firstAttribute="top" secondItem="qJh-iM-5MP" secondAttribute="bottom" constant="16" id="A2n-Zk-hWa"/>
                                             <constraint firstItem="cTu-Z7-mu5" firstAttribute="leading" secondItem="u7o-Oa-rCL" secondAttribute="trailing" constant="8" id="BLt-cd-8XT">
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
-                                            <constraint firstItem="eTK-UE-GHX" firstAttribute="top" secondItem="qJh-iM-5MP" secondAttribute="bottom" constant="32" id="BhW-f7-zS9">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="qJh-iM-5MP" firstAttribute="leading" secondItem="cAc-C9-ikQ" secondAttribute="leading" constant="16" id="C8L-pp-8sx">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="gtj-C5-2aQ" firstAttribute="leading" secondItem="cAc-C9-ikQ" secondAttribute="leading" constant="16" id="C9N-xf-md5">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="VPL-9u-3vd" firstAttribute="top" secondItem="wNF-1r-QQx" secondAttribute="bottom" constant="16" id="D12-GY-jci">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
+                                            <constraint firstAttribute="trailing" secondItem="E5c-7K-cSO" secondAttribute="trailing" id="D81-tX-uXc"/>
                                             <constraint firstItem="eTD-KB-49v" firstAttribute="leading" secondItem="cAc-C9-ikQ" secondAttribute="leading" id="DNH-DF-8N2">
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
+                                            <constraint firstItem="zMt-qp-eQW" firstAttribute="centerY" secondItem="kHM-Ss-KWw" secondAttribute="centerY" id="Dqc-qw-RB8"/>
+                                            <constraint firstItem="qJh-iM-5MP" firstAttribute="top" secondItem="VPL-9u-3vd" secondAttribute="bottom" constant="16" id="Dzu-h4-bBB"/>
+                                            <constraint firstItem="ZhK-vi-qdx" firstAttribute="top" secondItem="kHM-Ss-KWw" secondAttribute="bottom" constant="16" id="EQE-Ms-vO7"/>
                                             <constraint firstItem="u7o-Oa-rCL" firstAttribute="top" secondItem="nA8-Tv-hZP" secondAttribute="bottom" constant="8" id="Eep-Rv-MIx">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstAttribute="trailing" secondItem="E5c-7K-cSO" secondAttribute="trailing" id="GCh-Pk-KNN">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="E5c-7K-cSO" firstAttribute="leading" secondItem="cAc-C9-ikQ" secondAttribute="leading" id="I5N-tA-wZa">
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
@@ -2751,27 +2881,12 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
-                                            <constraint firstItem="ZhK-vi-qdx" firstAttribute="top" secondItem="zMt-qp-eQW" secondAttribute="bottom" constant="16" id="Lrt-fi-uSo">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstAttribute="trailing" secondItem="VPL-9u-3vd" secondAttribute="trailing" constant="16" id="MPQ-Ir-szQ">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="E5c-7K-cSO" firstAttribute="top" secondItem="gtj-C5-2aQ" secondAttribute="bottom" constant="16" id="OYh-VO-zm2">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
+                                            <constraint firstAttribute="trailing" secondItem="SNK-ui-rQl" secondAttribute="trailing" constant="8" id="MdH-N3-07f"/>
+                                            <constraint firstItem="kHM-Ss-KWw" firstAttribute="top" secondItem="SNK-ui-rQl" secondAttribute="bottom" constant="16" id="N8z-zN-S37"/>
+                                            <constraint firstItem="eTK-UE-GHX" firstAttribute="leading" secondItem="cAc-C9-ikQ" secondAttribute="leading" constant="16" id="NGC-J2-mp1"/>
+                                            <constraint firstAttribute="trailing" secondItem="VPL-9u-3vd" secondAttribute="trailing" constant="16" id="Nug-pG-asK"/>
+                                            <constraint firstItem="zMt-qp-eQW" firstAttribute="leading" secondItem="kHM-Ss-KWw" secondAttribute="trailing" constant="16" id="O8o-lv-FoR"/>
                                             <constraint firstAttribute="trailing" secondItem="nA8-Tv-hZP" secondAttribute="trailing" constant="8" id="QLa-4k-xPV">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstAttribute="trailing" secondItem="SNK-ui-rQl" secondAttribute="trailing" constant="8" id="RzS-cp-LTi">
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
@@ -2781,52 +2896,23 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
-                                            <constraint firstItem="X8Z-Ni-dNj" firstAttribute="leading" secondItem="zMt-qp-eQW" secondAttribute="trailing" constant="8" id="SlU-Om-RGP">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="qAy-oz-auh" firstAttribute="top" secondItem="eTK-UE-GHX" secondAttribute="bottom" constant="16" id="TWd-w7-opv">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="SNK-ui-rQl" firstAttribute="leading" secondItem="cAc-C9-ikQ" secondAttribute="leading" constant="8" id="Tdm-EC-HuU">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="SNK-ui-rQl" firstAttribute="top" secondItem="Gdk-dO-xDu" secondAttribute="bottom" constant="16" id="V5N-JL-jXX">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
+                                            <constraint firstAttribute="trailing" secondItem="ZhK-vi-qdx" secondAttribute="trailing" id="Ux7-jj-YO7"/>
                                             <constraint firstItem="hq4-eh-1hs" firstAttribute="height" secondItem="vMd-tN-kWc" secondAttribute="height" id="Vrf-HP-fil">
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
+                                            <constraint firstItem="X8Z-Ni-dNj" firstAttribute="bottom" secondItem="zMt-qp-eQW" secondAttribute="bottom" id="Vy8-Of-ids"/>
                                             <constraint firstItem="6wX-8n-8At" firstAttribute="top" secondItem="u7o-Oa-rCL" secondAttribute="bottom" constant="16" id="WKs-1z-vym">
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
-                                            <constraint firstItem="zMt-qp-eQW" firstAttribute="leading" secondItem="kHM-Ss-KWw" secondAttribute="trailing" constant="8" id="WiQ-4R-9T4">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="eTK-UE-GHX" firstAttribute="leading" secondItem="cAc-C9-ikQ" secondAttribute="leading" constant="16" id="Woe-dF-Xxr">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
+                                            <constraint firstItem="qAy-oz-auh" firstAttribute="top" secondItem="eTK-UE-GHX" secondAttribute="bottom" constant="16" id="WQW-XD-FGr"/>
+                                            <constraint firstItem="wNF-1r-QQx" firstAttribute="top" secondItem="ZhK-vi-qdx" secondAttribute="bottom" constant="16" id="Wgc-i7-7cz"/>
+                                            <constraint firstItem="E5c-7K-cSO" firstAttribute="leading" secondItem="cAc-C9-ikQ" secondAttribute="leading" id="XSD-eL-Fut"/>
+                                            <constraint firstItem="qJh-iM-5MP" firstAttribute="leading" secondItem="cAc-C9-ikQ" secondAttribute="leading" constant="16" id="YQ2-E4-YZS"/>
                                             <constraint firstItem="Gdk-dO-xDu" firstAttribute="top" secondItem="hQO-Dx-U3E" secondAttribute="bottom" constant="16" id="YXm-50-zgV">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="gtj-C5-2aQ" firstAttribute="top" secondItem="mE8-c7-e84" secondAttribute="bottom" constant="16" id="YmO-lc-1N1">
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
@@ -2841,6 +2927,7 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
+                                            <constraint firstItem="X8Z-Ni-dNj" firstAttribute="leading" secondItem="zMt-qp-eQW" secondAttribute="trailing" constant="8" id="ZrM-2u-H0n"/>
                                             <constraint firstItem="aYh-Ie-FQK" firstAttribute="leading" secondItem="cAc-C9-ikQ" secondAttribute="leading" constant="8" id="Zxa-4g-7oq">
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
@@ -2856,61 +2943,33 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
+                                            <constraint firstItem="SNK-ui-rQl" firstAttribute="top" secondItem="Gdk-dO-xDu" secondAttribute="bottom" constant="8" id="eG7-1K-Jv9"/>
                                             <constraint firstAttribute="trailing" secondItem="eTD-KB-49v" secondAttribute="trailing" id="eiw-W4-Sjd">
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
-                                            <constraint firstItem="X8Z-Ni-dNj" firstAttribute="centerY" secondItem="zMt-qp-eQW" secondAttribute="centerY" id="fMp-65-Gaf">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
+                                            <constraint firstItem="kHM-Ss-KWw" firstAttribute="width" secondItem="vMd-tN-kWc" secondAttribute="width" multiplier="1.125" id="eyd-Eb-DCq"/>
+                                            <constraint firstItem="E5c-7K-cSO" firstAttribute="top" secondItem="gtj-C5-2aQ" secondAttribute="bottom" constant="16" id="f00-D8-bRS"/>
+                                            <constraint firstItem="gtj-C5-2aQ" firstAttribute="leading" secondItem="cAc-C9-ikQ" secondAttribute="leading" constant="16" id="ftf-fW-2by"/>
                                             <constraint firstItem="BKN-H7-0om" firstAttribute="height" secondItem="hq4-eh-1hs" secondAttribute="height" id="h8l-Kr-NmW">
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
-                                            <constraint firstAttribute="bottom" secondItem="qAy-oz-auh" secondAttribute="bottom" id="hOO-3y-QQl">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstAttribute="trailing" secondItem="qAy-oz-auh" secondAttribute="trailing" id="i65-6A-cQa">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
+                                            <constraint firstItem="VPL-9u-3vd" firstAttribute="leading" secondItem="cAc-C9-ikQ" secondAttribute="leading" constant="16" id="hKL-tN-v7x"/>
                                             <constraint firstItem="eTD-KB-49v" firstAttribute="top" secondItem="6wX-8n-8At" secondAttribute="bottom" constant="16" id="jHC-7Y-fQV">
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
-                                            <constraint firstItem="mE8-c7-e84" firstAttribute="leading" secondItem="cAc-C9-ikQ" secondAttribute="leading" constant="8" id="jXD-iA-UrX">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="wNF-1r-QQx" firstAttribute="top" secondItem="ZhK-vi-qdx" secondAttribute="bottom" constant="16" id="kY7-6u-j2H">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
+                                            <constraint firstItem="VPL-9u-3vd" firstAttribute="top" secondItem="wNF-1r-QQx" secondAttribute="bottom" constant="16" id="jxA-F4-Mxw"/>
                                             <constraint firstItem="vMd-tN-kWc" firstAttribute="height" secondItem="Gdk-dO-xDu" secondAttribute="height" id="lTe-tn-jKe">
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
-                                            <constraint firstItem="ZhK-vi-qdx" firstAttribute="leading" secondItem="cAc-C9-ikQ" secondAttribute="leading" id="n5B-ly-wW9">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="mE8-c7-e84" firstAttribute="top" secondItem="SNK-ui-rQl" secondAttribute="bottom" constant="16" id="nhw-6a-ImA">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
+                                            <constraint firstItem="eTK-UE-GHX" firstAttribute="top" secondItem="E5c-7K-cSO" secondAttribute="bottom" constant="16" id="m7F-iO-ZnT"/>
                                             <constraint firstItem="cTu-Z7-mu5" firstAttribute="top" secondItem="nA8-Tv-hZP" secondAttribute="bottom" constant="8" id="pQG-tn-iF5">
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
@@ -2926,16 +2985,8 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
-                                            <constraint firstItem="kHM-Ss-KWw" firstAttribute="leading" secondItem="cAc-C9-ikQ" secondAttribute="leading" constant="16" id="tD1-ZK-oKB">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
-                                            <constraint firstItem="qJh-iM-5MP" firstAttribute="width" secondItem="cAc-C9-ikQ" secondAttribute="width" multiplier="0.15" id="vwM-R1-Xac">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
+                                            <constraint firstItem="qAy-oz-auh" firstAttribute="leading" secondItem="cAc-C9-ikQ" secondAttribute="leading" id="wK7-hG-nBb"/>
+                                            <constraint firstAttribute="trailing" secondItem="qAy-oz-auh" secondAttribute="trailing" id="wXz-zR-ZqE"/>
                                             <constraint firstItem="Gdk-dO-xDu" firstAttribute="width" secondItem="cAc-C9-ikQ" secondAttribute="width" multiplier="0.339372" id="xLO-pa-JKd">
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
@@ -2951,16 +3002,13 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
+                                            <constraint firstAttribute="bottom" secondItem="qAy-oz-auh" secondAttribute="bottom" id="xu6-rX-LSs"/>
                                             <constraint firstItem="BKN-H7-0om" firstAttribute="leading" secondItem="hq4-eh-1hs" secondAttribute="trailing" constant="8" id="y9m-ht-h5r">
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </constraint>
-                                            <constraint firstItem="wNF-1r-QQx" firstAttribute="centerX" secondItem="cAc-C9-ikQ" secondAttribute="centerX" id="yJ6-TE-mAK">
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoConstrains" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </constraint>
+                                            <constraint firstItem="kHM-Ss-KWw" firstAttribute="leading" secondItem="cAc-C9-ikQ" secondAttribute="leading" constant="16" id="zym-qU-3M6"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -3023,17 +3071,18 @@
                             </constraint>
                         </constraints>
                     </view>
+                    <size key="freeformSize" width="414" height="1100"/>
                     <connections>
                         <outlet property="btnLike" destination="Gdk-dO-xDu" id="oJd-hF-lXz"/>
                         <outlet property="btnLikeCount" destination="UU0-A9-0QW" id="jPO-og-QBt"/>
                         <outlet property="btnSendComent" destination="qJh-iM-5MP" id="1DI-EI-ema"/>
                         <outlet property="btnXemThem" destination="wNF-1r-QQx" id="WOf-SS-Sx2"/>
-                        <outlet property="btnXemThemBinhLuanMarginTop" destination="kY7-6u-j2H" id="Tyj-1R-r7D"/>
+                        <outlet property="btnXemThemBinhLuanMarginTop" destination="Wgc-i7-7cz" id="LOK-eS-acB"/>
                         <outlet property="clvCungChuyenMuc" destination="qAy-oz-auh" id="0xX-Di-lJU"/>
                         <outlet property="clvThemThongTin" destination="E5c-7K-cSO" id="txW-jS-rJe"/>
-                        <outlet property="heightClvCungChuyenMuc" destination="F1u-9X-5Dp" id="DVq-Xe-3sd"/>
-                        <outlet property="heightClvThemThongTin" destination="ij4-ln-iRN" id="z9c-H8-GmO"/>
-                        <outlet property="heightTblComment" destination="Zwg-sU-9v4" id="Z6j-0t-3WW"/>
+                        <outlet property="heightClvCungChuyenMuc" destination="1cb-CD-JoI" id="sgB-VN-Soe"/>
+                        <outlet property="heightClvThemThongTin" destination="4Ga-oi-4Nz" id="cgp-B9-SJO"/>
+                        <outlet property="heightTblComment" destination="CpQ-ld-n1p" id="VSl-nJ-8Nb"/>
                         <outlet property="heightWebview" destination="oTl-K6-j7L" id="4zF-QU-wbf"/>
                         <outlet property="lblAuthor" destination="hQO-Dx-U3E" id="Ydh-nx-bsS"/>
                         <outlet property="lblCategoryName" destination="cTu-Z7-mu5" id="MNe-d5-MSK"/>
@@ -3044,13 +3093,13 @@
                         <outlet property="tagListView" destination="SNK-ui-rQl" id="myL-fD-sMs"/>
                         <outlet property="tblComment" destination="ZhK-vi-qdx" id="4Bm-nQ-MtF"/>
                         <outlet property="tfBinhLuan" destination="VPL-9u-3vd" id="Jap-Fj-dOJ"/>
-                        <outlet property="tfMarginTop" destination="D12-GY-jci" id="eAH-Td-5D5"/>
+                        <outlet property="tfMarginTop" destination="jxA-F4-Mxw" id="RbR-4b-EBn"/>
                         <outlet property="wbContent" destination="eTD-KB-49v" id="Oqb-s5-Vjn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="erw-h0-3Gc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-883" y="4446"/>
+            <point key="canvasLocation" x="-886.95652173913049" y="4502.6785714285716"/>
         </scene>
         <!--Xem Them CmtVC-->
         <scene sceneID="0QW-bJ-MCT">
@@ -3729,7 +3778,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wqa-ox-hZe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-883" y="5143"/>
+            <point key="canvasLocation" x="-886" y="5265"/>
         </scene>
         <!--Page AudioVC-->
         <scene sceneID="WC1-jx-Pop">
@@ -3943,8 +3992,8 @@
         <designable name="OcO-cP-JiM">
             <size key="intrinsicContentSize" width="42" height="20"/>
         </designable>
-        <designable name="SNK-ui-rQl">
-            <size key="intrinsicContentSize" width="398" height="16"/>
+        <designable name="vYT-BP-dxx">
+            <size key="intrinsicContentSize" width="51" height="24"/>
         </designable>
     </designables>
     <resources>

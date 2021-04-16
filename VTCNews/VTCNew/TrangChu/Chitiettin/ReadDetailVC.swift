@@ -594,7 +594,7 @@ extension ReadDetailVC: UITableViewDelegate, UITableViewDataSource {
             self.tfMarginTop.constant = scale * 16
             return 3
         } else {
-            self.tfMarginTop.constant = 0
+            self.tfMarginTop.constant = scale * (-(self.btnXemThem.frame.height))
             self.btnXemThem.isHidden = true
             return listComment.count
         }

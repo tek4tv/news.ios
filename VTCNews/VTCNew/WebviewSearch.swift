@@ -15,9 +15,10 @@ class WebviewSearch: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         actionBar()
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         
-        //        webview.load(NSURLRequest(url: NSURL(string: "https://cse.google.com/cse?cx=partner-pub-2579189069606201%3A4583669249&ie=UTF-8&q=")! as URL) as URLRequest)
-        //        webview.load(NSURLRequest(url: NSURL(string: "https://vtc.vn/nu-sinh-lop-8-bi-danh-hoi-dong-da-man-phong-gd-dt-huyen-noi-gi-ar605776.html")! as URL) as URLRequest)
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        
         webview.frame = view.bounds
         webview.navigationDelegate = self
         
@@ -87,5 +88,10 @@ class WebviewSearch: UIViewController, WKNavigationDelegate {
     }
     @objc func back(_ sender: UITapGestureRecognizer){
         self.navigationController?.popViewController(animated: true)
+    }
+}
+extension WebviewSearch:UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }
