@@ -842,8 +842,11 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView.tag == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellMenuText", for: indexPath) as! CellMenuText
-            return CGSize(width: cell.lbl.frame.width, height: clvTabMenu.frame.height)
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellMenuText", for: indexPath) as! CellMenuText
+            let lable = UILabel(frame: CGRect.zero)
+                    lable.text = listMenuShow[indexPath.row].title
+                    lable.sizeToFit()
+            return CGSize(width: lable.frame.width + scale * 20, height: clvTabMenu.frame.height)
         } else if collectionView.tag == 1 {
             return CGSize(width: UIScreen.main.bounds.width, height: scale * 145)
         } else if collectionView.tag == 2 {
@@ -871,13 +874,12 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        if collectionView.tag == 0 {
-            return scale * 10
-        } else {
+        if collectionView.tag != 0 {
             return 0
+        } else {
+            return scale * 10
         }
     }
-    
 }
 
 
