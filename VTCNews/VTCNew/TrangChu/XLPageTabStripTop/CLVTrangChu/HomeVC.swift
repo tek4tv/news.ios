@@ -10,11 +10,7 @@ import SideMenu
 import Toast_Swift
 
 class HomeVC: UIViewController {
-    var idArticle = 0 {
-        didSet{
-            print("idArticle: \(idArticle)")
-        }
-    }
+    var idArticle = 0
     var page = 1
     
     @IBOutlet weak var scrollView: UIScrollView!

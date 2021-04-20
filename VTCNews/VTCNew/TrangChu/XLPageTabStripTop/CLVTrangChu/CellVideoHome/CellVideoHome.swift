@@ -78,7 +78,6 @@ extension CellVideoHome: UICollectionViewDelegate, UICollectionViewDataSource, U
                     NotificationCenter.default.post(name: Notification.Name("openVideo"), object: nil, userInfo: ["category":self.listVideoHome[indexPath.row].categoryName, "id":self.listVideoHome[indexPath.row].id,"name":self.listVideoHome[indexPath.row].title,"published":timePass,"des":self.listVideoHome[indexPath.row].descriptionField,"cateID":self.listVideoHome[indexPath.row].categoryId])
                 } else {
 //                    self.navigationController?.view.makeToast("Video bị lỗi")
-                    print("Loi")
                 }
             }
         } else {
@@ -97,7 +96,6 @@ extension CellVideoHome: UICollectionViewDelegate, UICollectionViewDataSource, U
                     NotificationCenter.default.post(name: Notification.Name("openVideo"), object: nil, userInfo: ["category":self.listVideoHome[indexPath.row+1].categoryName, "id":self.listVideoHome[indexPath.row+1].id,"name":self.listVideoHome[indexPath.row+1].title,"published":timePass,"des":self.listVideoHome[indexPath.row+1].descriptionField,"cateID":self.listVideoHome[indexPath.row+1].categoryId])
                 } else {
 //                    self.navigationController?.view.makeToast("Video bị lỗi")
-                    print("Loi")
                 }
             }
         }

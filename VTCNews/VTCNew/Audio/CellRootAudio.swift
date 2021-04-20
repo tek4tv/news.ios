@@ -70,7 +70,6 @@ class CellRootAudio: UICollectionViewCell {
                 DispatchQueue.main.async {
                     self.clv.reloadData()
                 }
-                print(self.listSachNoi.count)
             }
         }
     }

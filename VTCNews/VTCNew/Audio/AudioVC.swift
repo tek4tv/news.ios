@@ -174,7 +174,6 @@ class AudioVC: UIViewController {
                 DispatchQueue.main.async {
                     self.clvSachNoi.reloadData()
                 }
-                print(self.listSachNoi.count)
             }
         }
     }

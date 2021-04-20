@@ -44,7 +44,6 @@ class DialogPushComment: UIViewController {
             
             
             AF.request(url, method:.post, parameters: nil,encoding: JSONEncoding.default) .responseJSON { (response) in
-                print(response)
                 self.viewDone.isHidden = false
                 self.viewPushCmt.isHidden = true
             }

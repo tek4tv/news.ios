@@ -42,7 +42,6 @@ class CellDetailAudio: UITableViewCell {
 
 extension CellDetailAudio: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("Cell: \(listData.count)")
         return listData.count
     }
     
