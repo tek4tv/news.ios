@@ -842,10 +842,9 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView.tag == 0 {
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellMenuText", for: indexPath) as! CellMenuText
             let lable = UILabel(frame: CGRect.zero)
-                    lable.text = listMenuShow[indexPath.row].title
-                    lable.sizeToFit()
+            lable.text = listMenuShow[indexPath.row].title
+            lable.sizeToFit()
             return CGSize(width: lable.frame.width + scale * 20, height: clvTabMenu.frame.height)
         } else if collectionView.tag == 1 {
             return CGSize(width: UIScreen.main.bounds.width, height: scale * 145)

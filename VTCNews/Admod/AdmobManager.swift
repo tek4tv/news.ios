@@ -29,8 +29,8 @@ class AdmobManager: NSObject, GADUnifiedNativeAdDelegate {
     static let shared = AdmobManager()
     
     var interstitial: GADInterstitial!
-//    var fbInterstitialAd: FBInterstitialAd!
-
+    //    var fbInterstitialAd: FBInterstitialAd!
+    
     var isShowAds = false
     var counter = 1
     
@@ -38,9 +38,9 @@ class AdmobManager: NSObject, GADUnifiedNativeAdDelegate {
     var clickType: clickType = .none
     var fullErrorType: clickType = .none
     var nativeType: adType = .facebook
-
+    
     var fullRootViewController: UIViewController!
-
+    
     //Native ads
     private var adLoader: GADAdLoader!
     var fbNativeAds: [FBNativeAd] = []
@@ -74,11 +74,11 @@ class AdmobManager: NSObject, GADUnifiedNativeAdDelegate {
     
     func openRateView(){
         if #available(iOS 10.3, *) {
-//            SKStoreReviewController.requestReview()
+            //            SKStoreReviewController.requestReview()
         } else {
         }
     }
-        
+    
     func createBannerView(inVC: UIViewController) -> UIView{
         let witdh = DEVICE_WIDTH
         let frame = CGRect.init(x: (witdh - adSize.size.width)/2 , y: 0, width: adSize.size.width, height: adSize.size.height)
@@ -95,28 +95,28 @@ class AdmobManager: NSObject, GADUnifiedNativeAdDelegate {
         tempView.addSubview(bannerView)
         return tempView
     }
-
+    
     func createAndLoadFbInterstitial() {
-//        if PaymentManager.shared.isPurchaseRemoveAds() {
-//            return
-//        }
-//        self.fbInterstitialAd = FBInterstitialAd.init(placementID: fbKeyFull)
-//        self.fbInterstitialAd.delegate = self;
-//        self.fbInterstitialAd.load()
+        //        if PaymentManager.shared.isPurchaseRemoveAds() {
+        //            return
+        //        }
+        //        self.fbInterstitialAd = FBInterstitialAd.init(placementID: fbKeyFull)
+        //        self.fbInterstitialAd.delegate = self;
+        //        self.fbInterstitialAd.load()
     }
     
-//    func createAndLoadInterstitial() {
-//        if loadErrorFullAdmob >= 1{
-//            return
-//        }
-//        if PaymentManager.shared.isPurchaseRemoveAds() {
-//            return
-//        }
-//        interstitial = GADInterstitial(adUnitID: admobFull)
-//        interstitial.delegate = self
-//        let request = GADRequest()
-//        interstitial.load(request)
-//    }
+    //    func createAndLoadInterstitial() {
+    //        if loadErrorFullAdmob >= 1{
+    //            return
+    //        }
+    //        if PaymentManager.shared.isPurchaseRemoveAds() {
+    //            return
+    //        }
+    //        interstitial = GADInterstitial(adUnitID: admobFull)
+    //        interstitial.delegate = self
+    //        let request = GADRequest()
+    //        interstitial.load(request)
+    //    }
     
     func loadAllNativeAds(){
         if !isTimer {
@@ -198,18 +198,18 @@ class AdmobManager: NSObject, GADUnifiedNativeAdDelegate {
     }
     
     func loadFBNativeAds(){
-//        if PaymentManager.shared.isPurchaseRemoveAds() {
-//            return
-//        }
-//        if nativeFBIndex > 0{
-//            if fbNativeAds.count > (nativeFBIndex){
-//                return
-//            }
-//        }
-//        print("loadFBNativeAds")
-//        let loadNativeAds = FBNativeAd.init(placementID: fbKeyNative)
-//        loadNativeAds.delegate = self
-//        loadNativeAds.loadAd()
+        //        if PaymentManager.shared.isPurchaseRemoveAds() {
+        //            return
+        //        }
+        //        if nativeFBIndex > 0{
+        //            if fbNativeAds.count > (nativeFBIndex){
+        //                return
+        //            }
+        //        }
+        //        print("loadFBNativeAds")
+        //        let loadNativeAds = FBNativeAd.init(placementID: fbKeyNative)
+        //        loadNativeAds.delegate = self
+        //        loadNativeAds.loadAd()
     }
     
     func logEvent(){
@@ -230,64 +230,64 @@ class AdmobManager: NSObject, GADUnifiedNativeAdDelegate {
         }
         if  counter >= numberToShowAd {
             isShowAds = true
-//            if adType == .facebook{
-//                if clickType == .facebook{
-//                    if interstitial.isReady{
-//                        adType = .facebook
-//                        interstitial.present(fromRootViewController: fullRootViewController)
-//                        counter = 1
-//                    }else{
-//                        if fbInterstitialAd.isAdValid{
-//                            adType = .admob
-//                            fbInterstitialAd.show(fromRootViewController: fullRootViewController)
-//                            counter = 1
-//                        }
-//                    }
-//                }else{
-//                    if fbInterstitialAd.isAdValid{
-//                        adType = .admob
-//                        fbInterstitialAd.show(fromRootViewController: fullRootViewController)
-//                        counter = 1
-//                    }else{
-//                        if interstitial.isReady{
-//                            adType = .facebook
-//                            interstitial.present(fromRootViewController: fullRootViewController)
-//                            counter = 1
-//                        }
-//                    }
-//                }
-//            }else{
-                if clickType == .admob{
-//                    if fbInterstitialAd.isAdValid{
-//                        adType = .admob
-//                        fbInterstitialAd.show(fromRootViewController: fullRootViewController)
-//                        counter = 1
-//                    }else{
-                        if interstitial.isReady{
-                            adType = .facebook
-                            if fullRootViewController != nil{
-                                interstitial.present(fromRootViewController: fullRootViewController)
-                                counter = 1
-                            }
-                            
-                        }
-//                    }
-                }else{
-                    if interstitial.isReady{
-                        adType = .facebook
-                        if fullRootViewController != nil{
-                            interstitial.present(fromRootViewController: fullRootViewController)
-                            counter = 1
-                        }
-                    }else{
-//                        if fbInterstitialAd.isAdValid{
-//                            adType = .admob
-//                            fbInterstitialAd.show(fromRootViewController: fullRootViewController)
-//                            counter = 1
-//                        }
+            //            if adType == .facebook{
+            //                if clickType == .facebook{
+            //                    if interstitial.isReady{
+            //                        adType = .facebook
+            //                        interstitial.present(fromRootViewController: fullRootViewController)
+            //                        counter = 1
+            //                    }else{
+            //                        if fbInterstitialAd.isAdValid{
+            //                            adType = .admob
+            //                            fbInterstitialAd.show(fromRootViewController: fullRootViewController)
+            //                            counter = 1
+            //                        }
+            //                    }
+            //                }else{
+            //                    if fbInterstitialAd.isAdValid{
+            //                        adType = .admob
+            //                        fbInterstitialAd.show(fromRootViewController: fullRootViewController)
+            //                        counter = 1
+            //                    }else{
+            //                        if interstitial.isReady{
+            //                            adType = .facebook
+            //                            interstitial.present(fromRootViewController: fullRootViewController)
+            //                            counter = 1
+            //                        }
+            //                    }
+            //                }
+            //            }else{
+            if clickType == .admob{
+                //                    if fbInterstitialAd.isAdValid{
+                //                        adType = .admob
+                //                        fbInterstitialAd.show(fromRootViewController: fullRootViewController)
+                //                        counter = 1
+                //                    }else{
+                if interstitial.isReady{
+                    adType = .facebook
+                    if fullRootViewController != nil{
+                        interstitial.present(fromRootViewController: fullRootViewController)
+                        counter = 1
                     }
+                    
                 }
-//            }
+                //                    }
+            }else{
+                if interstitial.isReady{
+                    adType = .facebook
+                    if fullRootViewController != nil{
+                        interstitial.present(fromRootViewController: fullRootViewController)
+                        counter = 1
+                    }
+                }else{
+                    //                        if fbInterstitialAd.isAdValid{
+                    //                            adType = .admob
+                    //                            fbInterstitialAd.show(fromRootViewController: fullRootViewController)
+                    //                            counter = 1
+                    //                        }
+                }
+            }
+            //            }
         }else{
             if isShowAds{
                 isShowAds = false
@@ -361,19 +361,19 @@ extension AdmobManager: GADBannerViewDelegate {
         inVC.view.addSubview(bannerView)
         inVC.view.addConstraints(
             [NSLayoutConstraint(item: bannerView,
-                attribute: .bottom,
-                relatedBy: .equal,
-                toItem: inVC.bottomLayoutGuide,
-                attribute: .top,
-                multiplier: 1,
-                constant: 0),
-                NSLayoutConstraint(item: bannerView,
-                    attribute: .centerX,
-                    relatedBy: .equal,
-                    toItem: inVC.view,
-                    attribute: .centerX,
-                    multiplier: 1,
-                    constant: 0)
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: inVC.bottomLayoutGuide,
+                                attribute: .top,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: inVC.view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
             ])
         bannerView.adUnitID = admobBanner
         bannerView.rootViewController = inVC
@@ -381,7 +381,7 @@ extension AdmobManager: GADBannerViewDelegate {
         let request = GADRequest()
         bannerView.load(request)
     }
-
+    
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
         bannerView.alpha = 0
         UIView.animate(withDuration: 1, animations: {
@@ -392,7 +392,7 @@ extension AdmobManager: GADBannerViewDelegate {
 
 
 extension AdmobManager: GADInterstitialDelegate {
-
+    
     func createAndLoadInterstitial() {
         if PaymentManager.shared.isPurchase() {
             return
@@ -402,9 +402,9 @@ extension AdmobManager: GADInterstitialDelegate {
             let request = GADRequest()
             interstitial.load(request)
         }
-
+        
     }
-
+    
     func interstitialDidDismissScreen(_ ad: GADInterstitial) {
         self.createAndLoadInterstitial()
     }
@@ -415,34 +415,34 @@ extension AdmobManager: GADInterstitialDelegate {
         }
     }
     
-//    func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
-//        print("didFailToReceiveAdWithError GADInterstitial")
-//        if fullErrorType == .facebook{
-//            fullErrorType = .all
-//        }else{
-//            fullErrorType = .admob
-//        }
-//        loadErrorFullAdmob = loadErrorFullAdmob + 1
-//    }
-//
-//    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
-//        print("interstitialDidReceiveAd")
-//    }
-//
-//    func interstitialWillLeaveApplication(_ ad: GADInterstitial) {
-//        if clickType == .facebook{
-//            clickType = .all
-//        }else{
-//            clickType = .admob
-//        }
-//        if clickType == .all {
-//            numberToShowAd = 10
-//        }
-//    }
+    //    func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
+    //        print("didFailToReceiveAdWithError GADInterstitial")
+    //        if fullErrorType == .facebook{
+    //            fullErrorType = .all
+    //        }else{
+    //            fullErrorType = .admob
+    //        }
+    //        loadErrorFullAdmob = loadErrorFullAdmob + 1
+    //    }
+    //
+    //    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+    //        print("interstitialDidReceiveAd")
+    //    }
+    //
+    //    func interstitialWillLeaveApplication(_ ad: GADInterstitial) {
+    //        if clickType == .facebook{
+    //            clickType = .all
+    //        }else{
+    //            clickType = .admob
+    //        }
+    //        if clickType == .all {
+    //            numberToShowAd = 10
+    //        }
+    //    }
 }
 
 extension AdmobManager: GADVideoControllerDelegate {
-
+    
     func videoControllerDidEndVideoPlayback(_ videoController: GADVideoController) {
         //videoStatusLabel.text = "Video playback has ended."
     }
@@ -476,7 +476,7 @@ extension AdmobManager: FBInterstitialAdDelegate{
             fullErrorType = .facebook
         }
     }
-   
+    
     func interstitialAdWillClose(_ interstitialAd: FBInterstitialAd) {
         
     }

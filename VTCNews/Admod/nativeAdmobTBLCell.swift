@@ -10,11 +10,11 @@ import UIKit
 import GoogleMobileAds
 
 class nativeAdmobTBLCell: UITableViewHeaderFooterView {
-
-      
+    
+    
     @IBOutlet weak var nativeAdView: GADUnifiedNativeAdView!
     @IBOutlet weak var colorView: UIView!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         colorView.backgroundColor = UIColor.white

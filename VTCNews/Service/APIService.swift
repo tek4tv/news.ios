@@ -305,7 +305,7 @@ class APIService{
             }
         })
     }
-  
+    
     
     func getComment(page:Int, id:Int , closure: @escaping (_ response: [ModelComment]?,_ totalAllRecord: Int?,_ totalPage: Int? , _ error: Error?) -> Void) {
         AF.request("https://api.vtcnews.tek4tv.vn/api/home/news/comment/GetComment/\(id)/\(page)", method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).responseJSON(completionHandler: { (response) in

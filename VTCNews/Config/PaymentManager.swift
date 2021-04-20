@@ -13,7 +13,7 @@ class PaymentManager: NSObject {
     var isVerifyError = true
     
     static let shared = PaymentManager()
-  
+    
     func isPurchase()->Bool{
         if let time = UserDefaults.standard.value(forKey: "purchaseTime") as? TimeInterval{
             let timeInterval = Date().timeIntervalSince1970
@@ -28,7 +28,7 @@ class PaymentManager: NSObject {
     func savePurchase(time: TimeInterval){
         UserDefaults.standard.setValue(time, forKey: "purchaseTime")
     }
-        
+    
     
 }
 
