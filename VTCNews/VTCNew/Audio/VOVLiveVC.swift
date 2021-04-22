@@ -164,6 +164,7 @@ extension VOVLiveVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         index = indexPath.row
+        clv.reloadData()
         isPlayVOV = true
         viewBottom.isHidden = false
         lblKenhLive.text = listTitle[indexPath.row]
