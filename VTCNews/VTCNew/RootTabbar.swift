@@ -292,7 +292,10 @@ class RootTabbar: UITabBarController {
     func setupRemoteTransportControls() {
         // Get the shared MPRemoteCommandCenter
         let commandCenter = MPRemoteCommandCenter.shared()
-        
+        commandCenter.nextTrackCommand.isEnabled = false
+        commandCenter.previousTrackCommand.isEnabled = false
+        commandCenter.playCommand.isEnabled = false
+        commandCenter.pauseCommand.isEnabled = false
         // Add handler for Play Command
         commandCenter.playCommand.addTarget { [unowned self] event in
             print("Play")

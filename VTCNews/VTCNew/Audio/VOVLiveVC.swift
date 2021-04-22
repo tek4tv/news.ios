@@ -61,7 +61,7 @@ class VOVLiveVC: UIViewController {
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
-
+        
         viewBottom.isHidden = true
         clv.delegate = self
         clv.dataSource = self
@@ -123,7 +123,7 @@ class VOVLiveVC: UIViewController {
     func playAudio(url:String){
         do {
             try AVAudioSession.sharedInstance()
-                                  .setCategory(AVAudioSession.Category.playback)
+                .setCategory(AVAudioSession.Category.playback)
             print("AVAudioSession Category Playback OK")
             do {
                 try AVAudioSession.sharedInstance().setActive(true)
@@ -178,67 +178,71 @@ extension VOVLiveVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
     func setupRemoteTransportControls() {
         // Get the shared MPRemoteCommandCenter
         let commandCenter = MPRemoteCommandCenter.shared()
-        
+        commandCenter.nextTrackCommand.isEnabled = false
+        commandCenter.previousTrackCommand.isEnabled = false
+        commandCenter.playCommand.isEnabled = false
+        commandCenter.pauseCommand.isEnabled = false
         // Add handler for Play Command
         commandCenter.playCommand.addTarget { [unowned self] event in
             print("Play")
-            if !isPlayVOV {
+//            if !isPlayVOV {
                 playAudio(url: listLink[index])
                 btnStatus.setImage(UIImage(named: "pause"), for: .normal)
                 
                 return .success
-            } else {
-                print("aaa")
-                playAudio(url: listLink[index])
-                btnStatus.setImage(UIImage(named: "pause"), for: .normal)
-                
-                return .success
-            }
+//            } else {
+//                print("aaa")
+//                playAudio(url: listLink[index])
+//                btnStatus.setImage(UIImage(named: "pause"), for: .normal)
+//
+//                return .success
+//            }
         }
         
         // Add handler for Pause Command
         commandCenter.pauseCommand.addTarget { [unowned self] event in
             print("pause")
-            if !isPlayVOV {
+//            if !isPlayVOV {
                 viewBottom.player?.pause()
                 btnStatus.setImage(UIImage(named: "play"), for: .normal)
                 
                 return .success
-            } else {
-                viewBottom.player?.pause()
-                btnStatus.setImage(UIImage(named: "play"), for: .normal)
-                
-                return .success
-            }
+//            } else {
+//                viewBottom.player?.pause()
+//                btnStatus.setImage(UIImage(named: "play"), for: .normal)
+//
+//                return .success
+//            }
         }
         
-        commandCenter.nextTrackCommand.addTarget { [unowned self] event in
-            print("Next")
-            if index == listTitle.count - 1 {
-                return .commandFailed
-            } else {
-                index = index + 1
-            }
-            playAudio(url: listLink[index])
-            lblKenhLive.text = listTitle[index]
-            imgKenhLive.image = UIImage(named: listImg[index])
-            setupNowPlaying()
-            return .commandFailed
-        }
-        
-        commandCenter.previousTrackCommand.addTarget { [unowned self] event in
-            if index == 0 {
-                return .commandFailed
-            } else {
-                index = index - 1
-            }
-            
-            playAudio(url: listLink[index])
-            lblKenhLive.text = listTitle[index]
-            imgKenhLive.image = UIImage(named: listImg[index])
-            setupNowPlaying()
-            return .commandFailed
-        }
+//        commandCenter.nextTrackCommand.addTarget { [unowned self] event in
+//            print("Next")
+//            if index == listTitle.count - 1 {
+//                return .commandFailed
+//            } else {
+//                index = index + 1
+//            }
+//            print(index)
+//            playAudio(url: listLink[index])
+//            lblKenhLive.text = listTitle[index]
+//            imgKenhLive.image = UIImage(named: listImg[index])
+//            setupNowPlaying()
+//            return .commandFailed
+//        }
+//
+//        commandCenter.previousTrackCommand.addTarget { [unowned self] event in
+//            if index == 0 {
+//                return .commandFailed
+//            } else {
+//                index = index - 1
+//            }
+//            print(index)
+//            playAudio(url: listLink[index])
+//            lblKenhLive.text = listTitle[index]
+//            imgKenhLive.image = UIImage(named: listImg[index])
+//            setupNowPlaying()
+//            return .commandFailed
+//        }
     }
     
     func setupNowPlaying() {
@@ -247,16 +251,19 @@ extension VOVLiveVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
         nowPlayingInfo[MPMediaItemPropertyTitle] = listTitle[index]
         
         if let image = UIImage(named: listImg[index]) {
-              nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { size in
-                  return image
-              }
-          }
-            
+            nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { size in
+                return image
+            }
+        }
+        
         MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
     }
 }
 extension VOVLiveVC:UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        let commandCenter = MPRemoteCommandCenter.shared()
+        commandCenter.playCommand.isEnabled = false
+        commandCenter.pauseCommand.isEnabled = false
         return true
     }
 }
