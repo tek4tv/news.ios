@@ -21,7 +21,6 @@ class RootTabbar: UITabBarController {
             let vc = storyboard?.instantiateViewController(withIdentifier: "ReadDetailVC") as! ReadDetailVC
             vc.id = idNoti
             self.navigationController?.pushViewController(vc, animated: true)
-            
         }
     }
     
@@ -206,6 +205,8 @@ class RootTabbar: UITabBarController {
     @IBAction func tapDelAudio(_ sender: Any) {
         viewAudio.isHidden = true
         audioPlayer.stopAudio()
+        UIApplication.shared.endReceivingRemoteControlEvents()
+                MPNowPlayingInfoCenter.default().nowPlayingInfo = [:]
     }
     @IBAction func tapNextAudio(_ sender: Any) {
         if index == listData.count - 1 {
@@ -218,6 +219,7 @@ class RootTabbar: UITabBarController {
         } else {
             url = "https://media.vtc.vn\(listData[index].fileUrl)"
         }
+        print("index aa \(index)")
         audioPlayer.playAudio(fileURL: URL(string: url)!)
         lblNameAudio.text = listData[index].name
         if let url = URL(string: listData[index].image182182){
@@ -247,6 +249,7 @@ class RootTabbar: UITabBarController {
         } else {
             url = "https://media.vtc.vn\(listData[index].fileUrl)"
         }
+        print("index aa \(index)")
         lblNameAudio.text = listData[index].name
         if let url = URL(string: listData[index].image182182){
             imgAudio.loadImage(fromURL: url)
@@ -292,10 +295,10 @@ class RootTabbar: UITabBarController {
     func setupRemoteTransportControls() {
         // Get the shared MPRemoteCommandCenter
         let commandCenter = MPRemoteCommandCenter.shared()
-        commandCenter.nextTrackCommand.isEnabled = false
-        commandCenter.previousTrackCommand.isEnabled = false
-        commandCenter.playCommand.isEnabled = false
-        commandCenter.pauseCommand.isEnabled = false
+//        commandCenter.nextTrackCommand.isEnabled = false
+//        commandCenter.previousTrackCommand.isEnabled = false
+//        commandCenter.playCommand.isEnabled = false
+//        commandCenter.pauseCommand.isEnabled = false
         // Add handler for Play Command
         commandCenter.playCommand.addTarget { [unowned self] event in
             print("Play")
@@ -330,44 +333,13 @@ class RootTabbar: UITabBarController {
         }
         
         commandCenter.nextTrackCommand.addTarget { [unowned self] event in
-            print("Next")
-            if index == listData.count - 1 {
-                return .commandFailed
-            } else {
-                index = index + 1
-            }
-            if listData[index].fileUrl.contains("http"){
-                url = listData[index].fileUrl
-            } else {
-                url = "https://media.vtc.vn\(listData[index].fileUrl)"
-            }
-            audioPlayer.playAudio(fileURL: URL(string: url)!)
-            lblNameAudio.text = listData[index].name
-            if let url = URL(string: listData[index].image182182){
-                imgAudio.loadImage(fromURL: url)
-            }
-            setupNowPlaying()
-            return .commandFailed
+            self.tapNextAudio(Any.self)
+            return .success
         }
         
         commandCenter.previousTrackCommand.addTarget { [unowned self] event in
-            if index == 0 {
-                return .commandFailed
-            } else {
-                index = index - 1
-            }
-            if listData[index].fileUrl.contains("http"){
-                url = listData[index].fileUrl
-            } else {
-                url = "https://media.vtc.vn\(listData[index].fileUrl)"
-            }
-            lblNameAudio.text = listData[index].name
-            if let url = URL(string: listData[index].image182182){
-                imgAudio.loadImage(fromURL: url)
-            }
-            audioPlayer.playAudio(fileURL: URL(string: url)!)
-            setupNowPlaying()
-            return .commandFailed
+            self.tapPreviousAudi(Any.self)
+            return .success
         }
     }
     
@@ -457,9 +429,7 @@ class RootTabbar: UITabBarController {
         
         let safeAreaInsetsBottom = UIApplication.shared.windows[0].safeAreaInsets.bottom
         let numberOfTab = CGFloat((tabBar.items?.count)!)
-        let tabbarSize = CGSize(width: tabBar.frame.width / numberOfTab, height: tabBar.frame.size.height + safeAreaInsetsBottom)
-        //        let tabbarSize = CGSize(width: tabBar.frame.width / numberOfTab, height: tabBar.frame.size.height)
-        
+        let tabbarSize = CGSize(width: tabBar.frame.width / numberOfTab, height: tabBar.frame.size.height + safeAreaInsetsBottom)        
         tabBar.selectionIndicatorImage = UIImage.imageWithColorNav(color: UIColor(hexString: "#a3151d"), size: tabbarSize)
         
         
@@ -668,7 +638,16 @@ class RootTabbar: UITabBarController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    
+    override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+            UIApplication.shared.endReceivingRemoteControlEvents()
+            MPNowPlayingInfoCenter.default().nowPlayingInfo = [:]
+        let commandCenter = MPRemoteCommandCenter.shared()
+           commandCenter.playCommand.removeTarget(self)
+           commandCenter.pauseCommand.removeTarget(self)
+           commandCenter.previousTrackCommand.removeTarget(self)
+           commandCenter.nextTrackCommand.removeTarget(self)
+        }
     
     @objc func openAudio(_ notification: Notification){
         setupRemoteTransportControls()
@@ -688,6 +667,7 @@ class RootTabbar: UITabBarController {
         
         listData = notification.userInfo?["listData"] as! [ModelAlbumDetail]
         index = (notification.userInfo?["index"] as? Int)!
+        print("aaaaaa \(index)")
         if listData[index].fileUrl.contains("http"){
             url = listData[index].fileUrl
         } else {
@@ -818,13 +798,8 @@ extension RootTabbar: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         self.published = timePass
         clvMoreVideo.setContentOffset(CGPoint.zero, animated: true)
         clvMoreVideo.reloadData()
-        
-        //        admobFull = "ca-app-pub-5372862349743986/8891274898"
-        
         AdmobManager.shared.loadAdFull(inVC: self)
     }
-    
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         2
     }

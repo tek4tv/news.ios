@@ -122,7 +122,6 @@ class Clv1VC: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return listDanhSachTin.count != 0 ? listDanhSachTin.count : 0
     }
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -130,7 +129,6 @@ class Clv1VC: UICollectionViewController {
             page = page + 1
             getData(page: page, id: id)
         }
-        print(page)
     }
     
     

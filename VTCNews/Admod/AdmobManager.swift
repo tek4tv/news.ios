@@ -363,7 +363,7 @@ extension AdmobManager: GADBannerViewDelegate {
             [NSLayoutConstraint(item: bannerView,
                                 attribute: .bottom,
                                 relatedBy: .equal,
-                                toItem: inVC.bottomLayoutGuide,
+                                toItem: inVC.view.safeAreaLayoutGuide.bottomAnchor,
                                 attribute: .top,
                                 multiplier: 1,
                                 constant: 0),
