@@ -20,7 +20,6 @@ class ResultTagVC: UIViewController {
     @IBOutlet weak var clv: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.heightAnchor.constraint(equalToConstant: 24).isActive = true

@@ -125,10 +125,6 @@ extension ReplyCommentVC: UITableViewDelegate, UITableViewDataSource {
             cell.btnMoreReplyConstrainTop.constant = scale * -4
             cell.btnMoreReplyConstrainBottom.constant = scale * -4
         
-        
-        
-        
-
         return cell
     }
     

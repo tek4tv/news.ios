@@ -27,9 +27,13 @@ class WellcomeVC: UIViewController {
                     for i in listData {
                         listMenu.append(i)
                     }
-                    DispatchQueue.main.async {
-                        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as! RootTabbar
-                        self.navigationController?.pushViewController(vc, animated: true)
+                    if listMenu.count != 0 {
+                        DispatchQueue.main.async {
+                            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as! RootTabbar
+                            self.navigationController?.pushViewController(vc, animated: true)
+                        }
+                    } else {
+                        print("aaaaaaa")
                     }
                 }
             }

@@ -61,6 +61,7 @@ class TinMoiVC: UIViewController {
     
     @objc
     private func didPullToRefresh(_ sender: Any) {
+        listData.removeAll()
         APIService.shared.getTinMoi(page: page){
             (response, error) in
             if let rs = response{

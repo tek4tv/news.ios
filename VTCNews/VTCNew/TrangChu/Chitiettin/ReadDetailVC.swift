@@ -34,6 +34,7 @@ class ReadDetailVC: UIViewController, WKNavigationDelegate {
         vc.id = self.id
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
     @IBOutlet weak var tfBinhLuan: UITextField!
     var listSizeCmt : [CGFloat] = []
     @IBAction func btnSendComent(_ sender: Any) {
